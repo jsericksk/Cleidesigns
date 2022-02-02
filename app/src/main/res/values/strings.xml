@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Cleidesigns</string>
+
+    <string name="button_cancel">Cancel</string>
+    <string name="design_inspiration">Design Inspiration</string>
+    <string name="continue_to_source_project_page">You will be redirected to the project page
+        of this design. If the page cannot be loaded, the project may have been deleted.
+        Do you want to continue?</string>
+
+    <!-- HomeFragment -->
+    <string name="menu_options">Options</string>
+
+    <string name="view_xml_version">View in XML</string>
+    <string name="view_compose_version">View in Compose</string>
+    <string name="view_design_inspiration">View Inpiration</string>
+    <string name="view_source_project">View Source Project</string>
+
+    <string name="design1_text">Named after asteroid 6 0 9 4 (h i s a k o) is currently travelling
+        through time and space.</string>
+
+
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_xml_vesion"
+        android:title="@string/view_xml_version" />
+
+    <item
+        android:id="@+id/menu_compose_version"
+        android:title="@string/view_compose_version" />
+
+    <item
+        android:id="@+id/menu_design_inspiration"
+        android:title="@string/view_design_inspiration" />
+
+</menu>
