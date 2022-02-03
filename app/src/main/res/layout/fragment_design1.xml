@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    tools:context=".ui.fragments.design1.Design1Fragment"
     tools:ignore="HardcodedText">
 
     <RelativeLayout
@@ -17,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_design1" />
+            android:src="@drawable/design1_image" />
 
         <ImageButton
             android:id="@+id/ivBackButton"

@@ -10,6 +10,7 @@ import androidx.navigation.navOptions
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.databinding.FragmentHomeBinding
+import com.kproject.cleidesigns.models.Design
 import com.kproject.cleidesigns.ui.adapters.DesignAdapter
 import com.kproject.cleidesigns.utils.Constants
 import com.kproject.cleidesigns.utils.ListUtils
@@ -55,26 +56,26 @@ class HomeFragment : Fragment() {
         val layoutManager = GridLayoutManager(requireContext(), 2)
         val adapter = DesignAdapter(
             designList = designList, onItemClickListener = { design, view, position ->
-                popupMenu(view, position)
+                showPopupMenu(design, view, position)
             }
         )
         binding.rvDesignList.adapter = adapter
         binding.rvDesignList.layoutManager = layoutManager
     }
 
-    private fun popupMenu(view: View, position: Int) {
+    private fun showPopupMenu(design: Design, view: View, position: Int) {
         val popupMenu = PopupMenu(requireContext(), view)
         popupMenu.inflate(R.menu.menu_popup_main)
         popupMenu.setOnMenuItemClickListener { item ->
             when (item?.itemId) {
                 R.id.menu_xml_vesion -> {
-                   navigate(Constants.VIEW_IN_XML)
+                   navigate(design.fragmentId, Constants.VIEW_IN_XML)
                 }
                 R.id.menu_compose_version -> {
-                    navigate(Constants.VIEW_IN_COMPOSE)
+                    navigate(design.fragmentId, Constants.VIEW_IN_COMPOSE)
                 }
                 R.id.menu_design_inspiration -> {
-                    navigate(Constants.VIEW_INSPIRATION)
+                    navigate(design.fragmentId, Constants.VIEW_INSPIRATION)
                 }
             }
             false
@@ -82,7 +83,7 @@ class HomeFragment : Fragment() {
         popupMenu.show()
     }
 
-    private fun navigate(layoutVersion: Int) {
+    private fun navigate(fragmentId: Int, layoutVersion: Int) {
         val options = navOptions {
             anim {
                 enter = R.anim.slide_in_left
@@ -93,10 +94,6 @@ class HomeFragment : Fragment() {
         }
         val bundle = Bundle()
         bundle.putInt("layoutVersion", layoutVersion)
-        findNavController().navigate(R.id.designFragment1, bundle, options)
-    }
-
-    private fun designId() {
-
+        findNavController().navigate(fragmentId, bundle, options)
     }
 }

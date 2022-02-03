@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
+import com.kproject.cleidesigns.R
+import com.kproject.cleidesigns.ui.fragments.design2.Place
 
 object Utils {
 

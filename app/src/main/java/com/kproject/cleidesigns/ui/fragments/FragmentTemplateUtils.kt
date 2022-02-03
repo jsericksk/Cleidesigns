@@ -13,7 +13,7 @@ import com.kproject.cleidesigns.databinding.FragmentDesign1Binding
 import com.kproject.cleidesigns.utils.Constants
 
 
-class DesignFragment1 : Fragment(), FragmentBaseInterface {
+class Design1Fragment : Fragment(), FragmentBaseInterface {
     private var _binding: FragmentDesign1Binding? = null
     private val binding get() = _binding!!
 

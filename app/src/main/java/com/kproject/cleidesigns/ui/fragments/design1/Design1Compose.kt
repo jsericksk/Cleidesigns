@@ -31,7 +31,7 @@ fun Design1Compose() {
                 .weight(1f)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.image_design1),
+                painter = painterResource(id = R.drawable.design1_image),
                 contentDescription = "",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()

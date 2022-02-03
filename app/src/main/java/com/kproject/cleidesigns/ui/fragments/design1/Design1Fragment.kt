@@ -17,7 +17,7 @@ import com.kproject.cleidesigns.ui.ViewInspiration
 import com.kproject.cleidesigns.ui.fragments.FragmentBaseInterface
 import com.kproject.cleidesigns.utils.Constants
 
-class DesignFragment1 : Fragment(), FragmentBaseInterface {
+class Design1Fragment : Fragment(), FragmentBaseInterface {
     private var _binding: FragmentDesign1Binding? = null
     private val binding get() = _binding!!
 
@@ -49,7 +49,7 @@ class DesignFragment1 : Fragment(), FragmentBaseInterface {
             }
             Constants.VIEW_INSPIRATION -> {
                 val design1 = Design(
-                    image = R.drawable.inspiration_design1,
+                    image = R.drawable.design_inspiration_1,
                     title = "Design 1",
                     sourceUrl = "https://dribbble.com/shots/7046889-Wrist-Watch-App-Concept",
                     tags = "wrist app, item details, buy"
