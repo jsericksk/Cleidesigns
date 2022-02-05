@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="4dp"
+    android:padding="0dp"
     tools:ignore="HardcodedText">
 
     <com.google.android.material.card.MaterialCardView
@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
-                    android:textColor="#E1DFDF"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
                 <TextView
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:maxLines="1"
-                    android:textColor="#E1DFDF"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:text="Ashok" />
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Age"
-                    android:textColor="#E1DFDF"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
                 <TextView
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:maxLines="1"
-                    android:textColor="#E1DFDF"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:text="28" />
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Status"
-                    android:textColor="#E1DFDF"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
                 <TextView
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:maxLines="1"
-                    android:textColor="#E1DFDF"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="14dp"

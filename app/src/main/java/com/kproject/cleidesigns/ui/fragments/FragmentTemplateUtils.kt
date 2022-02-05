@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.DrawableRes
 import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.databinding.FragmentDesign1Binding
+import com.kproject.cleidesigns.models.Design
+import com.kproject.cleidesigns.ui.ViewInspiration
 import com.kproject.cleidesigns.utils.Constants
-
 
 class Design1Fragment : Fragment(), FragmentBaseInterface {
     private var _binding: FragmentDesign1Binding? = null
@@ -21,8 +23,9 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val design = arguments?.getParcelable<Design>("design")!!
         val layoutVersion = arguments?.getInt("layoutVersion")
-        return initializeLayout(layoutVersion, inflater, container)
+        return initializeLayout(design, layoutVersion, inflater, container)
     }
 
     override fun onDestroy() {
@@ -31,6 +34,7 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
     }
 
     override fun initializeLayout(
+        design: Design,
         layoutVersion: Int?,
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -42,6 +46,9 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
             }
             Constants.VIEW_IN_COMPOSE -> {
                 view = initializeComposeLayout()
+            }
+            Constants.VIEW_INSPIRATION -> {
+                view = initializeViewInspirationLayout(design)
             }
         }
         return view
@@ -71,7 +78,15 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 MaterialTheme {
-
+                    ViewInspiration(
+                        design = design,
+                        navigateBack = {
+                            findNavController().popBackStack(
+                                R.id.homeFragment,
+                                false
+                            )
+                        }
+                    )
                 }
             }
         }

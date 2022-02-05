@@ -25,8 +25,9 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val design = arguments?.getParcelable<Design>("design")!!
         val layoutVersion = arguments?.getInt("layoutVersion")
-        return initializeLayout(layoutVersion, inflater, container)
+        return initializeLayout(design, layoutVersion, inflater, container)
     }
 
     override fun onDestroy() {
@@ -35,6 +36,7 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
     }
 
     override fun initializeLayout(
+        design: Design,
         layoutVersion: Int?,
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -48,13 +50,7 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
                 view = initializeComposeLayout()
             }
             Constants.VIEW_INSPIRATION -> {
-                val design1 = Design(
-                    image = R.drawable.design_inspiration_1,
-                    title = "Design 1",
-                    sourceUrl = "https://dribbble.com/shots/7046889-Wrist-Watch-App-Concept",
-                    tags = "wrist app, item details, buy"
-                )
-                view = initializeViewInspirationLayout(design1)
+                view = initializeViewInspirationLayout(design)
             }
         }
         return view
@@ -80,9 +76,6 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
     }
 
     override fun initializeViewInspirationLayout(design: Design): View {
-        val navOptions = navOptions  {
-            this.launchSingleTop = true
-        }
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
@@ -94,9 +87,5 @@ class Design1Fragment : Fragment(), FragmentBaseInterface {
                 }
             }
         }
-    }
-
-    private fun viewInspiration() {
-
     }
 }

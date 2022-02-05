@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.size.Scale
 import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.databinding.Design2RecyclerviewItemPlaceBinding
 import com.kproject.cleidesigns.databinding.Design2RecyclerviewItemTravelBuddyBinding
@@ -23,7 +22,6 @@ import com.kproject.cleidesigns.models.Design
 import com.kproject.cleidesigns.ui.ViewInspiration
 import com.kproject.cleidesigns.ui.fragments.FragmentBaseInterface
 import com.kproject.cleidesigns.utils.Constants
-import com.kproject.cleidesigns.utils.ListUtils
 
 class Design2Fragment : Fragment(), FragmentBaseInterface {
     private var _binding: FragmentDesign2Binding? = null
@@ -33,8 +31,9 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val design = arguments?.getParcelable<Design>("design")!!
         val layoutVersion = arguments?.getInt("layoutVersion")
-        return initializeLayout(layoutVersion, inflater, container)
+        return initializeLayout(design, layoutVersion, inflater, container)
     }
 
     override fun onDestroy() {
@@ -43,6 +42,7 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
     }
 
     override fun initializeLayout(
+        design: Design,
         layoutVersion: Int?,
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -56,12 +56,6 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
                 view = initializeComposeLayout()
             }
             Constants.VIEW_INSPIRATION -> {
-                val design = Design(
-                    image = R.drawable.design_inspiration_2,
-                    title = "Design 2",
-                    sourceUrl = "https://dribbble.com/shots/7046889-Wrist-Watch-App-Concept",
-                    tags = "wrist app, item details, buy"
-                )
                 view = initializeViewInspirationLayout(design)
             }
         }
@@ -73,8 +67,8 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
         container: ViewGroup?
     ): View {
         _binding = FragmentDesign2Binding.inflate(inflater, container, false)
-        val listOfPlaces = ListUtils.Design2.createListOfPlaces()
-        val travelBuddyList = ListUtils.Design2.createTravelBuddyList()
+        val listOfPlaces = Design2Utils.createListOfPlaces()
+        val travelBuddyList = Design2Utils.createTravelBuddyList()
 
         // RecyclerView of list of places
         val layoutManager1 = GridLayoutManager(requireContext(), 2)
@@ -99,7 +93,7 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 MaterialTheme {
-
+                    Design2Compose()
                 }
             }
         }
@@ -125,7 +119,7 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
     }
 
     /**
-     * Used in RecyclerView XML version.
+     * Used in XML version.
      */
     inner class ListOfPlacesAdapter(
         private val listOfPlaces: List<Place>,
@@ -157,9 +151,7 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
             fun bindView(place: Place) {
                 with (binding) {
                     tvName.text = place.name
-                    ivImage.load(place.image) {
-                        scale(Scale.FIT)
-                    }
+                    ivImage.load(place.image)
                 }
 
                 itemView.setOnClickListener {
@@ -170,7 +162,7 @@ class Design2Fragment : Fragment(), FragmentBaseInterface {
     }
 
     /**
-     * Used in RecyclerView XML version.
+     * Used in XML version.
      */
     inner class TravelBuddyListAdapter(
         private val travelBuddyList: List<TravelBuddy>,

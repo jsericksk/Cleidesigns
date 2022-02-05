@@ -1,8 +1,10 @@
 package com.kproject.cleidesigns.ui.fragments
 
 import android.os.Bundle
-import android.view.*
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -15,6 +17,7 @@ import com.kproject.cleidesigns.ui.adapters.DesignAdapter
 import com.kproject.cleidesigns.utils.Constants
 import com.kproject.cleidesigns.utils.ListUtils
 
+
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -24,9 +27,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.tbMainToolbar.title = ""
-        (context as AppCompatActivity).setSupportActionBar(binding.tbMainToolbar)
-        setHasOptionsMenu(true)
 
         initializeRecyclerView()
         return binding.root
@@ -37,63 +37,63 @@ class HomeFragment : Fragment() {
         super.onDestroy()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_main, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menu_options -> {
-
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
     private fun initializeRecyclerView() {
         val designList = ListUtils.createList()
         val layoutManager = GridLayoutManager(requireContext(), 2)
         val adapter = DesignAdapter(
             designList = designList, onItemClickListener = { design, view, position ->
-                showPopupMenu(design, view, position)
+                showPopupMenu(design, view)
             }
         )
         binding.rvDesignList.adapter = adapter
         binding.rvDesignList.layoutManager = layoutManager
     }
 
-    private fun showPopupMenu(design: Design, view: View, position: Int) {
+    private fun showPopupMenu(design: Design, view: View) {
         val popupMenu = PopupMenu(requireContext(), view)
         popupMenu.inflate(R.menu.menu_popup_main)
+
         popupMenu.setOnMenuItemClickListener { item ->
             when (item?.itemId) {
                 R.id.menu_xml_vesion -> {
-                   navigate(design.fragmentId, Constants.VIEW_IN_XML)
+                   navigate(design, Constants.VIEW_IN_XML)
                 }
                 R.id.menu_compose_version -> {
-                    navigate(design.fragmentId, Constants.VIEW_IN_COMPOSE)
+                    navigate(design, Constants.VIEW_IN_COMPOSE)
                 }
                 R.id.menu_design_inspiration -> {
-                    navigate(design.fragmentId, Constants.VIEW_INSPIRATION)
+                    navigate(design, Constants.VIEW_INSPIRATION)
                 }
             }
             false
         }
-        popupMenu.show()
+
+        try {
+            val fieldMPopup = PopupMenu::class.java.getDeclaredField("mPopup")
+            fieldMPopup.isAccessible = true
+            val mPopup = fieldMPopup.get(popupMenu)
+            mPopup.javaClass
+                .getDeclaredMethod("setForceShowIcon", Boolean::class.java)
+                .invoke(mPopup, true)
+        } catch (e: Exception){
+            Log.e("HomeFragment", "Error showing popup menu icons.", e)
+        } finally {
+            popupMenu.show()
+        }
     }
 
-    private fun navigate(fragmentId: Int, layoutVersion: Int) {
+    private fun navigate(design: Design, layoutVersion: Int) {
         val options = navOptions {
             anim {
-                enter = R.anim.slide_in_left
+                enter = R.anim.slide_in_right
                 exit = R.anim.slide_out_left
-                popEnter = R.anim.slide_in_right
+                popEnter = R.anim.slide_in_left
                 popExit = R.anim.slide_out_right
             }
         }
         val bundle = Bundle()
+        bundle.putParcelable("design", design)
         bundle.putInt("layoutVersion", layoutVersion)
-        findNavController().navigate(fragmentId, bundle, options)
+        findNavController().navigate(design.fragmentId, bundle, options)
     }
 }

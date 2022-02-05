@@ -9,6 +9,7 @@ import com.kproject.cleidesigns.models.Design
 interface FragmentBaseInterface {
 
     fun initializeLayout(
+        design: Design,
         layoutVersion: Int?,
         inflater: LayoutInflater,
         container: ViewGroup?
