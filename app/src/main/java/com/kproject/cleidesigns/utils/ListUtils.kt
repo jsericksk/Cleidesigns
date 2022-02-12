@@ -25,7 +25,7 @@ object ListUtils {
             sourceUrl = "https://dribbble.com/shots/7046889-Wrist-Watch-App-Concept",
             tags = "wrist app, item details, buy"
         )
-        designList.add(design1)
+
         val design2 = Design(
             image = R.drawable.design_inspiration_2,
             fragmentId = R.id.design2Fragment,
@@ -33,6 +33,15 @@ object ListUtils {
             sourceUrl = "https://dribbble.com/shots/10859439-Travel-App-Free",
             tags = "travel app"
         )
+        val design3 = Design(
+            image = R.drawable.design_inspiration_3,
+            fragmentId = R.id.design3Fragment,
+            title = "Design 3",
+            sourceUrl = "https://dribbble.com/shots/17476661-ProCoin-Banking-App-Design",
+            tags = "banking app, chart, statistics"
+        )
+        designList.add(design1)
         designList.add(design2)
+        designList.add(design3)
     }
 }

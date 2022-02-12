@@ -5,8 +5,15 @@
       <map>
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/design2_layout_corners.xml" value="0.15" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/design2_searchtextfield.xml" value="0.15" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/design3_bottomnavigationview_colors.xml" value="0.1395" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design1_arrow_back.xml" value="0.129" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design1_favorite.xml" value="0.129" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design2_add.xml" value="0.129" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design2_menu.xml" value="0.15" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design2_notification.xml" value="0.15" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design2_person2.xml" value="0.129" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design3_call_made.xml" value="0.129" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_design3_home.xml" value="0.129" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/drawable/ic_splashscreen_icon.xml" value="0.129" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/design2_recyclerview_item_place.xml" value="0.25416666666666665" />
@@ -14,10 +21,12 @@
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/design2_recyclerview_item_travel_buddy.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/fragment_design.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/fragment_design1.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/fragment_design2.xml" value="0.176" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/fragment_design2.xml" value="0.4" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/fragment_design3.xml" value="0.2" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/recyclerview_item_design.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/test.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/layout/test.xml" value="0.264" />
+        <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/menu/design3_bottom_navigation_menu.xml" value="0.4" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/menu/menu_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/menu/menu_popup_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ericks/AndroidStudioProjects/Cleidesigns/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.129" />

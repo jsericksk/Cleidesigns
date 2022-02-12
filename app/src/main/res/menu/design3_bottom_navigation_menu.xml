@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_design3_home"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/menu_statistics"
+        android:enabled="true"
+        android:icon="@drawable/ic_design3_bar_chart"
+        android:title="Statistics"/>
+
+    <item
+        android:id="@+id/menu_transactions"
+        android:enabled="true"
+        android:icon="@drawable/ic_design3_currency_exchange"
+        android:title="Transactions"/>
+
+    <item
+        android:id="@+id/menu_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_design3_person"
+        android:title="Profile"/>
+</menu>

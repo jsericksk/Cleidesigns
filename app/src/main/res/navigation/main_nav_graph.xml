@@ -20,4 +20,8 @@
         android:id="@+id/design2Fragment"
         android:name="com.kproject.cleidesigns.ui.fragments.design2.Design2Fragment" />
 
+    <fragment
+        android:id="@+id/design3Fragment"
+        android:name="com.kproject.cleidesigns.ui.fragments.design3.Design3Fragment" />
+
 </navigation>
