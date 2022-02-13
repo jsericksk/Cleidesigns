@@ -56,7 +56,8 @@
                     android:id="@+id/etSearch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Search..." />
+                    android:hint="Search..."
+                    android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,7 +182,7 @@
                 android:layout_width="0dp"
                 android:layout_height="52dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="6dp"
                 android:text="Income"
                 android:textAlignment="center"
                 android:textColor="#737373"
@@ -198,7 +199,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
-                android:layout_marginStart="2dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="24dp"
                 android:checked="true"
                 android:text="Expenses"
@@ -267,7 +268,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="none"
-                            android:text="Week"
+                            android:text="Weekly"
                             android:textColor="#494949"
                             tools:ignore="LabelFor" />
 
@@ -288,6 +289,7 @@
                 android:id="@+id/tvTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="22dp"
                 android:text="This week"
                 android:textColor="#131313"

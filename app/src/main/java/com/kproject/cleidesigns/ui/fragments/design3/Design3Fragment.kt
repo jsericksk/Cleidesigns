@@ -88,7 +88,7 @@ class Design3Fragment : Fragment(), FragmentBaseInterface {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 MaterialTheme {
-
+                    Design3Compose()
                 }
             }
         }
