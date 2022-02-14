@@ -100,7 +100,7 @@ fun TopComponents() {
         singleLine = true,
         colors = TextFieldDefaults.textFieldColors(
             cursorColor = Color.DarkGray,
-            backgroundColor = Color(0xFFDDDDDD),
+            backgroundColor = Color(0xFFF1F1F9),
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             focusedLabelColor = Color(0xFF5C5C5C),
@@ -204,7 +204,7 @@ fun Statistics() {
     Spacer(Modifier.height(28.dp))
     Card(
         shape = RoundedCornerShape(16.dp),
-        backgroundColor = Color(0xFFDDDDDD),
+        backgroundColor = Color(0xFFF1F1F9),
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(
@@ -235,7 +235,7 @@ fun Statistics() {
                 Box(
                     modifier = Modifier
                         .background(
-                            Color(0xFFC1C1C1),
+                            Color(0xFFDCDCE7),
                             CircleShape.copy(CornerSize(8.dp))
                         )
                         .clickable { }
@@ -273,11 +273,11 @@ fun Statistics() {
 fun StatisticsOptions() {
     var selectedOption by remember { mutableStateOf(2) }
     val option1BackgroundColor =
-            if (selectedOption == 1) Color(0xFF2D2F45) else Color(0xFFDDDDDD)
+            if (selectedOption == 1) Color(0xFF2D2F45) else Color(0xFFF1F1F9)
     val option1TextColor =
             if (selectedOption == 1) Color.White else Color(0xFF737373)
     val option2BackgroundColor =
-            if (selectedOption == 2) Color(0xFF2D2F45) else Color(0xFFDDDDDD)
+            if (selectedOption == 2) Color(0xFF2D2F45) else Color(0xFFF1F1F9)
     val option2TextColor =
             if (selectedOption == 2) Color.White else Color(0xFF737373)
 
@@ -377,7 +377,7 @@ fun LastStatistics() {
                 .size(50.dp)
                 .clip(CircleShape)
                 .rotate(-90f)
-                .background(color = Color(0xFFDDDDDD), shape = CircleShape)
+                .background(color = Color(0xFFF1F1F9), shape = CircleShape)
         )
 
         Spacer(Modifier.width(10.dp))
