@@ -34,9 +34,9 @@ abstract class BaseFragment : Fragment() {
         return initializeLayout(design, layoutVersion)
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 
     private fun initializeLayout(

@@ -32,7 +32,8 @@ class Design2Fragment : BaseFragment() {
         binding.rvListOfPlaces.layoutManager = layoutManager1
 
         // RecyclerView of travel buddy list
-        val layoutManager2 = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val layoutManager2 =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         val travelBuddyListAdapter = TravelBuddyListAdapter(
             travelBuddyList, onItemClickListener = { travelBuddy -> }
         )
@@ -43,9 +44,7 @@ class Design2Fragment : BaseFragment() {
     }
 
     @Composable
-    override fun ComposeLayout() {
-        Design2Compose()
-    }
+    override fun ComposeLayout() = Design2Compose()
 
     /**
      * Used in XML version.
@@ -78,7 +77,7 @@ class Design2Fragment : BaseFragment() {
         ) : RecyclerView.ViewHolder(binding.root) {
 
             fun bindView(place: Place) {
-                with (binding) {
+                with(binding) {
                     tvName.text = place.name
                     ivImage.load(place.image)
                 }
@@ -121,7 +120,7 @@ class Design2Fragment : BaseFragment() {
         ) : RecyclerView.ViewHolder(binding.root) {
 
             fun bindView(travelBuddy: TravelBuddy, position: Int) {
-                with (binding) {
+                with(binding) {
                     if ((position % 2) == 0) {
                         cvMainCardView.setCardBackgroundColor(
                             ContextCompat.getColor(requireContext(), R.color.cardview_background1)

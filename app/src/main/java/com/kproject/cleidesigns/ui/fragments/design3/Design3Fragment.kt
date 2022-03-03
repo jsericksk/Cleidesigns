@@ -34,7 +34,5 @@ class Design3Fragment : BaseFragment() {
     }
 
     @Composable
-    override fun ComposeLayout() {
-        Design3Compose()
-    }
+    override fun ComposeLayout() = Design3Compose()
 }

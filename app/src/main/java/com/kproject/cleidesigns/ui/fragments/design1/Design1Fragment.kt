@@ -9,7 +9,5 @@ class Design1Fragment : BaseFragment() {
     override fun initializeXmlLayout() = FragmentDesign1Binding.inflate(layoutInflater)
 
     @Composable
-    override fun ComposeLayout() {
-        Design1Compose()
-    }
+    override fun ComposeLayout() = Design1Compose()
 }
