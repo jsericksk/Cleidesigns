@@ -1,7 +1,7 @@
 ## Cleidesigns - UI created in XML and Jetpack Compose
 <p align="center">
-  <img src="app-demo.gif" width="300" height="600" />
-  <br/><img src="screenshots.png" width="600" height=600"/>
+  <img src="screenshots/screenshots_design_1.png" width="700" height="500" />
+  <br/><img src="screenshots/screenshots_design_3.png" width="700" height=500"/>
 </p>
 
 This project was created with the purpose of exercising and improving my knowledge in creating Android interfaces.
