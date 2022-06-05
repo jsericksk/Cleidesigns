@@ -72,7 +72,7 @@ fun Design3Compose() {
 }
 
 @Composable
-fun TopComponents() {
+private fun TopComponents() {
     Text(
         text = "Statistics",
         color = Color(0xFF0A0A0A),
@@ -111,7 +111,7 @@ fun TopComponents() {
 }
 
 @Composable
-fun CardComponents() {
+private fun CardComponents() {
     Row(Modifier.fillMaxWidth()){
         Card(
             shape = RoundedCornerShape(16.dp),
@@ -199,7 +199,7 @@ fun CardComponents() {
 }
 
 @Composable
-fun Statistics() {
+private fun Statistics() {
     StatisticsOptions()
     Spacer(Modifier.height(28.dp))
     Card(
@@ -268,9 +268,8 @@ fun Statistics() {
     }
 }
 
-
 @Composable
-fun StatisticsOptions() {
+private fun StatisticsOptions() {
     var selectedOption by remember { mutableStateOf(2) }
     val option1BackgroundColor =
             if (selectedOption == 1) Color(0xFF2D2F45) else Color(0xFFF1F1F9)
@@ -321,7 +320,7 @@ fun StatisticsOptions() {
 }
 
 @Composable
-fun StatisticsChart() {
+private fun StatisticsChart() {
     AndroidView(
         modifier = Modifier
             .fillMaxWidth()
@@ -335,9 +334,8 @@ fun StatisticsChart() {
     )
 }
 
-
 @Composable
-fun LastStatistics() {
+private fun LastStatistics() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
@@ -410,7 +408,7 @@ fun LastStatistics() {
 }
 
 @Composable
-fun BottomNavigationView(
+private fun BottomNavigationView(
     items: List<BottomNavigationItem>,
     modifier: Modifier = Modifier,
     activeTextColor: Color = Color.Black,
@@ -443,7 +441,7 @@ fun BottomNavigationView(
 }
 
 @Composable
-fun BottomNavigationViewItem(
+private fun BottomNavigationViewItem(
     item: BottomNavigationItem,
     isSelected: Boolean = false,
     activeTextColor: Color = Color.Black,
@@ -473,7 +471,7 @@ fun BottomNavigationViewItem(
 
 @Preview(showBackground = true)
 @Composable
-fun Design3ComposePreview() {
+private fun Preview() {
     Design3Compose()
 }
 

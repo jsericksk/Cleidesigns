@@ -33,7 +33,7 @@ fun ViewInspiration(
 ) {
     val context = LocalContext.current
     var backButtonClicks by remember { mutableStateOf(0) }
-    val showDialog = remember { mutableStateOf(false) }
+    var showDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -56,11 +56,12 @@ fun ViewInspiration(
                 elevation = 0.dp
             )
         }
-    ) {
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color(0xFF3C3C3C))
+                .padding(paddingValues)
         ) {
             Image(
                 painter = painterResource(id = design.image),
@@ -70,7 +71,7 @@ fun ViewInspiration(
             )
 
             Button(
-                onClick = { showDialog.value = true },
+                onClick = { showDialog = true },
                 modifier = Modifier.fillMaxWidth().padding(16.dp),
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = colorResource(id = R.color.colorPrimary)
@@ -84,8 +85,11 @@ fun ViewInspiration(
         }
     }
 
-    SimpleDialog(
+    AlertDialog(
         showDialog = showDialog,
+        onDismiss = {
+            showDialog = false
+        },
         titleResId = R.string.design_inspiration,
         messageResId = R.string.continue_to_source_project_page,
         onClickButtonOk = {
@@ -95,23 +99,21 @@ fun ViewInspiration(
                     Uri.parse(design.sourceUrl)
                 )
             )
-        },
-        onClickButtonCancel = { showDialog.value = false }
+        }
     )
 }
 
-
 @Composable
-fun SimpleDialog(
-    showDialog: MutableState<Boolean>,
+private fun AlertDialog(
+    showDialog: Boolean,
+    onDismiss: () -> Unit,
     @StringRes titleResId: Int,
     @StringRes messageResId: Int,
-    onClickButtonOk: () -> Unit,
-    onClickButtonCancel: () -> Unit
+    onClickButtonOk: () -> Unit
 ) {
-    if (showDialog.value) {
+    if (showDialog) {
         AlertDialog(
-            onDismissRequest = { showDialog.value = false },
+            onDismissRequest = { onDismiss.invoke() },
             title = {
                 Text(
                     text = stringResource(id = titleResId),
@@ -130,7 +132,7 @@ fun SimpleDialog(
             confirmButton = {
                 TextButton(
                     onClick = {
-                        showDialog.value = false
+                        onDismiss.invoke()
                         onClickButtonOk.invoke()
                     }
                 ) {
@@ -143,8 +145,7 @@ fun SimpleDialog(
             dismissButton = {
                 TextButton(
                     onClick = {
-                        showDialog.value = false
-                        onClickButtonCancel.invoke()
+                        onDismiss.invoke()
                     }
                 ) {
                     Text(

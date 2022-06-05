@@ -123,10 +123,9 @@ fun Design1Compose() {
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
-fun Design1ComposePreview() {
+private fun Preview() {
     MaterialTheme {
         Design1Compose()
     }

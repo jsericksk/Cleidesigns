@@ -1,8 +1,12 @@
 package com.kproject.cleidesigns.ui.fragments.design2
 
-import androidx.compose.foundation.*
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
@@ -24,9 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kproject.cleidesigns.R
-import com.kproject.cleidesigns.ui.fragments.gridItems
 import com.kproject.cleidesigns.utils.Constants
-import com.kproject.cleidesigns.utils.ListUtils
 
 @Composable
 fun Design2Compose() {
@@ -174,7 +175,7 @@ fun Design2Compose() {
 }
 
 @Composable
-fun TopBarActionIcons() {
+private fun TopBarActionIcons() {
     val defaultPadding = 22.dp
     Row {
         /**
@@ -199,7 +200,7 @@ fun TopBarActionIcons() {
 }
 
 @Composable
-fun SearchTextField() {
+private fun SearchTextField() {
     val textFieldValue = remember { mutableStateOf("") }
     OutlinedTextField(
         value = textFieldValue.value,
@@ -232,7 +233,7 @@ fun SearchTextField() {
 }
 
 @Composable
-fun TravelBuddyList() {
+private fun TravelBuddyList() {
     val travelBuddyList = Design2Utils.createTravelBuddyList()
     LazyRow(
         modifier = Modifier.fillMaxWidth()
@@ -253,7 +254,7 @@ fun TravelBuddyList() {
 }
 
 @Composable
-fun TravelBuddyListItem(
+private fun TravelBuddyListItem(
     travelBuddy: TravelBuddy,
     cardBackgroundColor: Color
 ) {
@@ -342,7 +343,7 @@ fun TravelBuddyListItem(
 
 @Preview(showBackground = true)
 @Composable
-fun Design2ComposePreview() {
+private fun Preview() {
     MaterialTheme {
         Design2Compose()
     }
