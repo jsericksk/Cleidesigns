@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.models
+package com.kproject.cleidesigns.presentation.main
 
 import android.os.Parcelable
 import androidx.annotation.DrawableRes

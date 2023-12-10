@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.fragments.design2
+package com.kproject.cleidesigns.presentation.fragments.design2
 
 import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.utils.Constants

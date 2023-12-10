@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.design2.Design2Fragment"
+    tools:context=".presentation.fragments.design2.Design2Fragment"
     tools:ignore="HardcodedText">
 
     <RelativeLayout

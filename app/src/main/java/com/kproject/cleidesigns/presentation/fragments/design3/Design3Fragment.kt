@@ -1,11 +1,11 @@
-package com.kproject.cleidesigns.ui.fragments.design3
+package com.kproject.cleidesigns.presentation.fragments.design3
 
 import android.graphics.Color
 import androidx.compose.runtime.Composable
 import androidx.viewbinding.ViewBinding
 import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.databinding.FragmentDesign3Binding
-import com.kproject.cleidesigns.ui.fragments.BaseFragment
+import com.kproject.cleidesigns.presentation.fragments.BaseFragment
 
 class Design3Fragment : BaseFragment() {
 

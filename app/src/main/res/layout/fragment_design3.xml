@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.design3.Design3Fragment"
+    tools:context=".presentation.fragments.design3.Design3Fragment"
     tools:ignore="HardcodedText">
 
     <androidx.core.widget.NestedScrollView

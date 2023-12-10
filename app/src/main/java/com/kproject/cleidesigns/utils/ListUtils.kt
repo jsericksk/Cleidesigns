@@ -1,9 +1,7 @@
 package com.kproject.cleidesigns.utils
 
 import com.kproject.cleidesigns.R
-import com.kproject.cleidesigns.models.Design
-import com.kproject.cleidesigns.ui.fragments.design2.Place
-import com.kproject.cleidesigns.ui.fragments.design2.TravelBuddy
+import com.kproject.cleidesigns.presentation.main.Design
 
 /**
  * In the future there may be many designs, so this class serves as a way to

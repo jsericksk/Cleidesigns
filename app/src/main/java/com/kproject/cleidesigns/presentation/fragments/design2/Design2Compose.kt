@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.fragments.design2
+package com.kproject.cleidesigns.presentation.fragments.design2
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

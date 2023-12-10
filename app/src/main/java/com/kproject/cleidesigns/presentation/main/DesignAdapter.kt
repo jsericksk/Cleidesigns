@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.adapters
+package com.kproject.cleidesigns.presentation.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.size.Scale
 import com.kproject.cleidesigns.databinding.RecyclerviewItemDesignBinding
-import com.kproject.cleidesigns.models.Design
 
 class DesignAdapter(
     private val designList: List<Design>,

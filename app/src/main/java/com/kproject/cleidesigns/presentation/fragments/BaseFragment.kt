@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.fragments
+package com.kproject.cleidesigns.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.viewbinding.ViewBinding
 import com.kproject.cleidesigns.R
-import com.kproject.cleidesigns.models.Design
-import com.kproject.cleidesigns.ui.ViewInspiration
+import com.kproject.cleidesigns.presentation.main.Design
 import com.kproject.cleidesigns.utils.Constants
 
 abstract class BaseFragment : Fragment() {

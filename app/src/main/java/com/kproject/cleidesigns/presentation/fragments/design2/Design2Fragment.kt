@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.fragments.design2
+package com.kproject.cleidesigns.presentation.fragments.design2
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.databinding.Design2RecyclerviewItemPlaceBinding
 import com.kproject.cleidesigns.databinding.Design2RecyclerviewItemTravelBuddyBinding
 import com.kproject.cleidesigns.databinding.FragmentDesign2Binding
-import com.kproject.cleidesigns.ui.fragments.BaseFragment
+import com.kproject.cleidesigns.presentation.fragments.BaseFragment
 import com.kproject.cleidesigns.utils.Constants
 
 class Design2Fragment : BaseFragment() {
@@ -57,7 +57,7 @@ class Design2Fragment : BaseFragment() {
         override fun onCreateViewHolder(
             parent: ViewGroup,
             view: Int
-        ): ListOfPlacesAdapter.ItemViewHolder {
+        ): ItemViewHolder {
             val binding = Design2RecyclerviewItemPlaceBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
             return ItemViewHolder(binding)
@@ -66,7 +66,7 @@ class Design2Fragment : BaseFragment() {
         override fun getItemCount() = listOfPlaces.size
 
         override fun onBindViewHolder(
-            viewHolder: ListOfPlacesAdapter.ItemViewHolder,
+            viewHolder: ItemViewHolder,
             position: Int
         ) {
             viewHolder.bindView(listOfPlaces[position])
@@ -100,7 +100,7 @@ class Design2Fragment : BaseFragment() {
         override fun onCreateViewHolder(
             parent: ViewGroup,
             view: Int
-        ): TravelBuddyListAdapter.ItemViewHolder {
+        ): ItemViewHolder {
             val binding = Design2RecyclerviewItemTravelBuddyBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
             return ItemViewHolder(binding)
@@ -109,7 +109,7 @@ class Design2Fragment : BaseFragment() {
         override fun getItemCount() = travelBuddyList.size
 
         override fun onBindViewHolder(
-            viewHolder: TravelBuddyListAdapter.ItemViewHolder,
+            viewHolder: ItemViewHolder,
             position: Int
         ) {
             viewHolder.bindView(travelBuddyList[position], position)

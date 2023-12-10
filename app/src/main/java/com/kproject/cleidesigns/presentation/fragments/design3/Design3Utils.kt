@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.fragments.design3
+package com.kproject.cleidesigns.presentation.fragments.design3
 
 import android.graphics.Color
 import com.github.mikephil.charting.charts.BarChart

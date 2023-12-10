@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui
+package com.kproject.cleidesigns.presentation.fragments
 
 import android.content.Intent
 import android.net.Uri
@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kproject.cleidesigns.R
-import com.kproject.cleidesigns.models.Design
+import com.kproject.cleidesigns.presentation.main.Design
 
 @Composable
 fun ViewInspiration(

@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.fragments
+package com.kproject.cleidesigns.presentation.fragments
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyListScope

@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.ui.fragments
+package com.kproject.cleidesigns.presentation.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +12,8 @@ import androidx.navigation.navOptions
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.databinding.FragmentHomeBinding
-import com.kproject.cleidesigns.models.Design
-import com.kproject.cleidesigns.ui.adapters.DesignAdapter
+import com.kproject.cleidesigns.presentation.main.Design
+import com.kproject.cleidesigns.presentation.main.DesignAdapter
 import com.kproject.cleidesigns.utils.Constants
 import com.kproject.cleidesigns.utils.ListUtils
 
