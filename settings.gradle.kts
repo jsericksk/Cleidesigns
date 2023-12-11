@@ -18,4 +18,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Cleidesigns"
 include(":app")
+include(":core:common")
 include(":feature:design1")

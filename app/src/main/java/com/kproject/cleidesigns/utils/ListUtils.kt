@@ -23,7 +23,6 @@ object ListUtils {
             sourceUrl = "https://dribbble.com/shots/7046889-Wrist-Watch-App-Concept",
             tags = "wrist app, item details, buy"
         )
-
         val design2 = Design(
             image = R.drawable.design_inspiration_2,
             fragmentId = R.id.design2Fragment,

@@ -1,4 +1,4 @@
-package com.kproject.cleidesigns.presentation.fragments.design1
+package com.kproject.cleidesigns.feature.design1.compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.kproject.cleidesigns.R
+import com.kproject.cleidesigns.feature.design1.R
+import com.kproject.cleidesigns.core.commom.R as CR
 
 @Composable
 fun Design1Compose() {
@@ -32,18 +33,18 @@ fun Design1Compose() {
                 .weight(1f)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.design1_image),
+                painter = painterResource(id = R.drawable.img_sample),
                 contentDescription = "",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
 
             IconButton(
-                onClick = { },
+                onClick = {},
                 modifier = Modifier.padding(12.dp)
             ) {
                 Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_design1_arrow_back),
+                    imageVector = ImageVector.vectorResource(id = CR.drawable.ic_arrow_back),
                     contentDescription = null,
                     tint = Color.Black
                 )
@@ -55,8 +56,7 @@ fun Design1Compose() {
             elevation = 0.dp
         ) {
             Column(modifier = Modifier.padding(22.dp)) {
-                val avenirFontFamily =
-                        FontFamily(Font(R.font.design1_avenirltstd_book, FontWeight.Normal))
+                val avenirFontFamily = FontFamily(Font(R.font.avenirltstd_book, FontWeight.Normal))
                 Text(
                     text = "H I S A K O",
                     color = Color(0xFF020102),
@@ -75,7 +75,7 @@ fun Design1Compose() {
                 )
 
                 Text(
-                    text = stringResource(id = R.string.design1_text),
+                    text = stringResource(id = R.string.item_text),
                     color = Color(0xFF101010),
                     fontSize = 18.sp,
                     fontFamily = avenirFontFamily,
@@ -112,7 +112,7 @@ fun Design1Compose() {
                             .padding(start = 12.dp)
                     ) {
                         Icon(
-                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_design1_favorite),
+                            imageVector = ImageVector.vectorResource(id = CR.drawable.ic_favorite),
                             contentDescription = null,
                             tint = Color.Black
                         )

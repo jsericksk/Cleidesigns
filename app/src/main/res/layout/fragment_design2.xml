@@ -145,7 +145,7 @@
 
                 <Button
                     android:id="@+id/btAdd"
-                    style="@style/Design1.OutlinedButton.IconOnly"
+                    style="@style/Design2.OutlinedButton.IconOnly"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     app:icon="@drawable/ic_design2_add"

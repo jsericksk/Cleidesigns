@@ -1,6 +1,5 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("cleidesigns.android.application")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
@@ -59,6 +58,9 @@ android {
 }
 
 dependencies {
+    // Features
+    implementation(project(":feature:design1"))
+
     implementation(libs.core.ktx)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.core.ktx)

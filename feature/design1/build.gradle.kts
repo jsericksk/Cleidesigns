@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kproject.design1"
+    namespace = "com.kproject.cleidesigns.feature.design1"
 }
 
 dependencies {
