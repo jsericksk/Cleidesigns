@@ -1,21 +1,23 @@
 [versions]
-agp = "8.2.0"
+androidGradlePlugin = "8.2.0"
+androidxComposeCompiler = "1.5.6"
+androidDesugarJdkLibs = "2.0.3"
+kotlin = "1.9.21"
+navigationSafeargs = "2.7.5"
+coreKtx = "1.12.0"
+composeBom = "2023.10.01"
 coil = "2.5.0"
 coreSplashscreen = "1.0.1"
-kotlin = "1.9.21"
 appcompat = "1.6.1"
 constraintlayout = "2.1.4"
 legacySupportV4 = "1.0.0"
 googleMaterial = "1.10.0"
 mpAndroidChart = "v3.1.0"
-navigationSafeargs = "2.7.5"
-coreKtx = "1.12.0"
 junit = "4.13.2"
 androidxTestExtJunit = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.6.2"
 activityCompose = "1.8.1"
-composeBom = "2023.10.01"
 navVersion = "2.7.5"
 
 [libraries]
@@ -31,6 +33,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExtJunit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 
 # Jetpack Compose
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -46,9 +49,13 @@ compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 mp-android-chart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpAndroidChart" }
 
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 navigationSafeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationSafeargs" }
-
-
+androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

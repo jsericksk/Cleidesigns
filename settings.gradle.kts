@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -11,11 +12,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
-            setUrl("https://jitpack.io")
-        }
+        maven(url = "https://jitpack.io")
     }
 }
 
 rootProject.name = "Cleidesigns"
 include(":app")
+include(":feature:design1")
