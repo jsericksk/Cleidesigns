@@ -20,3 +20,4 @@ rootProject.name = "Cleidesigns"
 include(":app")
 include(":core:common")
 include(":feature:design1")
+include(":feature:design2")

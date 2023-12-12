@@ -1,16 +1,31 @@
-package com.kproject.cleidesigns.presentation.fragments.design2
+package com.kproject.cleidesigns.feature.design2.compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -26,8 +41,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.kproject.cleidesigns.R
-import com.kproject.cleidesigns.utils.Constants
+import com.kproject.cleidesigns.feature.design2.R
+import com.kproject.cleidesigns.feature.design2.model.TravelBuddy
+import com.kproject.cleidesigns.feature.design2.model.placeList
+import com.kproject.cleidesigns.feature.design2.model.travelBuddyList
 
 @Composable
 fun Design2Compose() {
@@ -50,7 +67,7 @@ fun Design2Compose() {
             }
 
             Image(
-                painter = painterResource(id = R.drawable.ic_design1_hand),
+                painter = painterResource(id = R.drawable.ic_custom_hand),
                 contentDescription = "",
                 modifier = Modifier
                     .size(150.dp)
@@ -93,9 +110,9 @@ fun Design2Compose() {
                 )
             }
 
-            val listOfPlaces = Design2Utils.createListOfPlaces()
+
             val columns = 2
-            val rows = if (listOfPlaces.count() == 0) 0 else 1 + (listOfPlaces.count() - 1) / columns
+            val rows = if (placeList.isEmpty()) 0 else 1 + (placeList.count() - 1) / columns
             /**
              * Implementation of a lazy vertical grid. LazyVerticalGrid was not used
              * here because it causes bugs when used in a scrollable Column/LazyColumn.
@@ -104,7 +121,7 @@ fun Design2Compose() {
                 Row {
                     for (columnIndex in 0 until columns) {
                         val itemIndex = rowIndex * columns + columnIndex
-                        if (itemIndex < listOfPlaces.count()) {
+                        if (itemIndex < placeList.count()) {
                             Card(
                                 shape = RoundedCornerShape(10.dp),
                                 modifier = Modifier
@@ -113,7 +130,7 @@ fun Design2Compose() {
                                     .clickable { }
                             ) {
                                 Image(
-                                    painter = painterResource(id = listOfPlaces[itemIndex].image),
+                                    painter = painterResource(id = placeList[itemIndex].image),
                                     contentDescription = "",
                                     contentScale = ContentScale.Crop,
                                     modifier = Modifier
@@ -122,7 +139,7 @@ fun Design2Compose() {
                                 )
 
                                 Text(
-                                    text = listOfPlaces[itemIndex].name,
+                                    text = placeList[itemIndex].name,
                                     color = Color.White,
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
@@ -161,7 +178,7 @@ fun Design2Compose() {
                             .aspectRatio(1f)
                     ) {
                         Icon(
-                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_design2_add),
+                            imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_add),
                             contentDescription = null,
                             tint = Color.DarkGray
                         )
@@ -182,7 +199,7 @@ private fun TopBarActionIcons() {
          * Used Image instead of IconButton to keep icon color.
          */
         Image(
-            painter = painterResource(id = R.drawable.ic_design2_notification),
+            painter = painterResource(id = R.drawable.ic_custom_notification),
             contentDescription = "",
             modifier = Modifier
                 .padding(top = defaultPadding, end = defaultPadding)
@@ -190,7 +207,7 @@ private fun TopBarActionIcons() {
         )
 
         Image(
-            painter = painterResource(id = R.drawable.ic_design2_menu),
+            painter = painterResource(id = R.drawable.ic_custom_menu),
             contentDescription = "",
             modifier = Modifier
                 .padding(top = defaultPadding, end = defaultPadding)
@@ -211,7 +228,7 @@ private fun SearchTextField() {
         label = { Text(text = "Search") },
         leadingIcon = {
             Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_design2_search),
+                imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_search),
                 contentDescription = null,
                 tint = Color.White
             )
@@ -234,7 +251,6 @@ private fun SearchTextField() {
 
 @Composable
 private fun TravelBuddyList() {
-    val travelBuddyList = Design2Utils.createTravelBuddyList()
     LazyRow(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -244,7 +260,6 @@ private fun TravelBuddyList() {
             } else {
                 Color(0xFF9BA1FF)
             }
-
             TravelBuddyListItem(
                 travelBuddy = travelBuddy,
                 cardBackgroundColor = cardBackgroundColor
@@ -258,12 +273,10 @@ private fun TravelBuddyListItem(
     travelBuddy: TravelBuddy,
     cardBackgroundColor: Color
 ) {
-    val status = travelBuddy.status
-    var travelBuddyStatus = ""
-    if (status == Constants.Design2.STATUS_FRIEND) {
-        travelBuddyStatus = "Friend"
-    } else if (status == Constants.Design2.STATUS_UNKNOWN) {
-        travelBuddyStatus = "Unknown"
+    val travelBuddyStatus = if (travelBuddy.isFriend) {
+        "Friend"
+    } else {
+        "Unknown"
     }
 
     Card(

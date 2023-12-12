@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="22dp"
-        app:cardUseCompatPadding="true"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -82,11 +82,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
+                    android:layout_marginBottom="14dp"
                     android:maxLines="1"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="14dp"
                     tools:text="Friend" />
 
             </LinearLayout>
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_gravity="bottom"
-                tools:src="@drawable/ic_design2_person1" />
+                tools:src="@drawable/ic_person1" />
 
         </LinearLayout>
 

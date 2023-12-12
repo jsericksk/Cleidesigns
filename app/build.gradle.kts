@@ -60,6 +60,7 @@ android {
 dependencies {
     // Features
     implementation(project(":feature:design1"))
+    implementation(project(":feature:design2"))
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.constraintlayout)

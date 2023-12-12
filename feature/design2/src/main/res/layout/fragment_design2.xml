@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.fragments.design2.Design2Fragment"
     tools:ignore="HardcodedText">
 
     <RelativeLayout
         android:id="@+id/rlTopBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/design2_layout_corners">
+        android:background="@drawable/layout_corners">
 
         <ImageButton
             android:id="@+id/ibNotifications"
@@ -22,7 +21,7 @@
             android:layout_toStartOf="@id/ibMenu"
             android:background="?android:attr/selectableItemBackground"
             android:padding="12dp"
-            android:src="@drawable/ic_design2_notification" />
+            android:src="@drawable/ic_custom_notification" />
 
         <ImageButton
             android:id="@+id/ibMenu"
@@ -33,13 +32,13 @@
             android:layout_marginEnd="14dp"
             android:background="?android:attr/selectableItemBackground"
             android:padding="12dp"
-            android:src="@drawable/ic_design2_menu" />
+            android:src="@drawable/ic_custom_menu" />
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="-20dp"
-            android:src="@drawable/ic_design1_hand" />
+            android:src="@drawable/ic_custom_hand" />
 
         <TextView
             android:id="@+id/tvWelcome"
@@ -48,7 +47,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="90dp"
             android:text="Welcome,"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFF"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -72,15 +71,15 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="30dp"
-            android:textColorHint="@color/white"
+            android:textColorHint="#FFFFFF"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/design2_searchtextfield"
-            app:hintTextColor="@color/white"
-            app:startIconDrawable="@drawable/ic_design2_search"
-            app:startIconTint="@color/white">
+            app:boxStrokeColor="@color/searchtextfield_color"
+            app:hintTextColor="#FFFFFF"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="#FFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSearch"
@@ -88,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Search"
                 android:maxLines="1"
-                android:textColor="@color/white" />
+                android:textColor="#FFFFFF" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -145,10 +144,10 @@
 
                 <Button
                     android:id="@+id/btAdd"
-                    style="@style/Design2.OutlinedButton.IconOnly"
+                    style="@style/OutlinedButton.IconOnly"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    app:icon="@drawable/ic_design2_add"
+                    app:icon="@drawable/ic_add"
                     app:iconGravity="textStart"
                     app:iconPadding="0dp"
                     app:iconTint="#434343" />

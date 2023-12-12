@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/design2_image_barcelona" />
+                tools:src="@drawable/img_barcelona" />
 
             <TextView
                 android:id="@+id/tvName"

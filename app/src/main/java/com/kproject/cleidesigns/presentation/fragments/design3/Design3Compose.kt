@@ -91,7 +91,7 @@ private fun TopComponents() {
         label = { Text(text = "Search...") },
         leadingIcon = {
             Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_design2_search),
+                imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_search),
                 contentDescription = null,
                 tint = Color(0xFF5C5C5C)
             )

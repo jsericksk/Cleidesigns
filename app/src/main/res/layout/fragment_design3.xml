@@ -50,7 +50,7 @@
                 app:boxStrokeWidthFocused="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvStatistics"
-                app:startIconDrawable="@drawable/ic_design2_search"
+                app:startIconDrawable="@drawable/ic_search"
                 app:startIconTint="#5C5C5C">
 
                 <com.google.android.material.textfield.TextInputEditText
