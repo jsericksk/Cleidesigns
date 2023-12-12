@@ -1,15 +1,40 @@
-package com.kproject.cleidesigns.presentation.fragments.design3
+package com.kproject.cleidesigns.feature.design3.compose
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,7 +51,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.github.mikephil.charting.charts.BarChart
-import com.kproject.cleidesigns.R
+import com.kproject.cleidesigns.feature.design3.utils.initBarChart
 
 @Composable
 fun Design3Compose() {
@@ -61,10 +86,22 @@ fun Design3Compose() {
         Column(modifier = Modifier.padding(start = 24.dp, end = 24.dp)) {
             BottomNavigationView(
                 items = listOf(
-                    BottomNavigationItem("Home", R.drawable.ic_design3_home),
-                    BottomNavigationItem("Statistics", R.drawable.ic_design3_bar_chart),
-                    BottomNavigationItem("Transactions", R.drawable.ic_design3_currency_exchange),
-                    BottomNavigationItem("Profile", R.drawable.ic_design3_person),
+                    BottomNavigationItem(
+                        "Home",
+                        com.kproject.cleidesigns.core.commom.R.drawable.ic_home
+                    ),
+                    BottomNavigationItem(
+                        "Statistics",
+                        com.kproject.cleidesigns.core.commom.R.drawable.ic_bar_chart
+                    ),
+                    BottomNavigationItem(
+                        "Transactions",
+                        com.kproject.cleidesigns.core.commom.R.drawable.ic_currency_exchange
+                    ),
+                    BottomNavigationItem(
+                        "Profile",
+                        com.kproject.cleidesigns.core.commom.R.drawable.ic_person
+                    ),
                 )
             )
         }
@@ -112,7 +149,7 @@ private fun TopComponents() {
 
 @Composable
 private fun CardComponents() {
-    Row(Modifier.fillMaxWidth()){
+    Row(Modifier.fillMaxWidth()) {
         Card(
             shape = RoundedCornerShape(16.dp),
             backgroundColor = Color(0xFF7D29A7),
@@ -124,7 +161,7 @@ private fun CardComponents() {
                 modifier = Modifier.padding(10.dp)
             ) {
                 Image(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_design3_call_made),
+                    imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_made),
                     contentDescription = "Income",
                     contentScale = ContentScale.Inside,
                     colorFilter = ColorFilter.tint(Color.White),
@@ -166,7 +203,7 @@ private fun CardComponents() {
                 modifier = Modifier.padding(10.dp)
             ) {
                 Image(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_design3_call_received),
+                    imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_received),
                     contentDescription = "Expenses",
                     contentScale = ContentScale.Inside,
                     colorFilter = ColorFilter.tint(Color.White),
@@ -327,7 +364,7 @@ private fun StatisticsChart() {
             .height(200.dp),
         factory = { context ->
             BarChart(context).apply {
-                Design3Utils.initBarChart(this)
+                initBarChart()
             }
         },
         update = { view -> }
@@ -355,7 +392,7 @@ private fun LastStatistics() {
             color = Color(0xFF6E6E6E),
             fontSize = 14.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.clickable {  }
+            modifier = Modifier.clickable { }
         )
     }
 
@@ -367,7 +404,7 @@ private fun LastStatistics() {
         modifier = Modifier.fillMaxWidth()
     ) {
         Image(
-            imageVector = ImageVector.vectorResource(id = R.drawable.ic_design3_call_received),
+            imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_received),
             contentDescription = "Expenses",
             contentScale = ContentScale.Inside,
             colorFilter = ColorFilter.tint(Color.Black),
@@ -415,9 +452,7 @@ private fun BottomNavigationView(
     inactiveTextColor: Color = Color(0xFF929292),
     initialSelectedItemIndex: Int = 1
 ) {
-    var selectedItemIndex by remember {
-        mutableStateOf(initialSelectedItemIndex)
-    }
+    var selectedItemIndex by remember { mutableIntStateOf(initialSelectedItemIndex) }
 
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,

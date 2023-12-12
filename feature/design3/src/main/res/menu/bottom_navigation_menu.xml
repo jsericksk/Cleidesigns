@@ -2,24 +2,24 @@
     <item
         android:id="@+id/menu_home"
         android:enabled="true"
-        android:icon="@drawable/ic_design3_home"
+        android:icon="@drawable/ic_home"
         android:title="Home"/>
 
     <item
         android:id="@+id/menu_statistics"
         android:enabled="true"
-        android:icon="@drawable/ic_design3_bar_chart"
+        android:icon="@drawable/ic_bar_chart"
         android:title="Statistics"/>
 
     <item
         android:id="@+id/menu_transactions"
         android:enabled="true"
-        android:icon="@drawable/ic_design3_currency_exchange"
+        android:icon="@drawable/ic_currency_exchange"
         android:title="Transactions"/>
 
     <item
         android:id="@+id/menu_profile"
         android:enabled="true"
-        android:icon="@drawable/ic_design3_person"
+        android:icon="@drawable/ic_person"
         android:title="Profile"/>
 </menu>

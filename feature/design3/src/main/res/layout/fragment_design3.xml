@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.design3.Design3Fragment"
     tools:ignore="HardcodedText">
 
     <androidx.core.widget.NestedScrollView
@@ -88,8 +87,8 @@
                         android:layout_centerVertical="true"
                         android:background="#5C1182"
                         android:scaleType="center"
-                        android:src="@drawable/ic_design3_call_made"
-                        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                        android:src="@drawable/ic_call_made"
+                        app:shapeAppearanceOverlay="@style/imageViewRounded"
                         app:tint="@color/white" />
 
                     <TextView
@@ -146,8 +145,8 @@
                         android:background="#312EAF"
                         android:rotation="-90"
                         android:scaleType="center"
-                        android:src="@drawable/ic_design3_call_received"
-                        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                        android:src="@drawable/ic_call_received"
+                        app:shapeAppearanceOverlay="@style/imageViewRounded"
                         app:tint="@color/white" />
 
                     <TextView
@@ -331,8 +330,8 @@
                     android:background="#F1F1F9"
                     android:rotation="-90"
                     android:scaleType="center"
-                    android:src="@drawable/ic_design3_call_received"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    android:src="@drawable/ic_call_received"
+                    app:shapeAppearanceOverlay="@style/imageViewRounded"
                     app:tint="#272727" />
 
                 <TextView
@@ -379,10 +378,10 @@
         android:id="@+id/bnBottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemIconTint="@color/design3_bottomnavigationview"
-        app:itemTextColor="@color/design3_bottomnavigationview"
+        app:itemIconTint="@color/bottomnavigationview"
+        app:itemTextColor="@color/bottomnavigationview"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/design3_bottom_navigation_menu" />
+        app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

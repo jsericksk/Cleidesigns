@@ -11,14 +11,5 @@
     <color name="colorPrimary">#1565C0</color>
     <color name="colorPrimaryVariant">#003C8F</color>
     <color name="colorOnPrimary">#FFFFFFFF</color>
-
-    <!-- Design 2 -->
-    <color name="cardview_background1">#00664F</color>
-    <color name="cardview_background2">#9BA1FF</color>
-
-    <!-- Design 3 -->
-    <color name="chip_background_unselected">#F1F1F9</color>
-    <color name="chip_background_selected">#2D2F45</color>
-
 </resources>
 

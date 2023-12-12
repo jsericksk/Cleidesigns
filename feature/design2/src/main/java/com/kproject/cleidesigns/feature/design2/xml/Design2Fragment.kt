@@ -10,7 +10,7 @@ import com.kproject.cleidesigns.feature.design2.model.travelBuddyList
 import com.kproject.cleidesigns.feature.design2.xml.adapter.ListOfPlacesAdapter
 import com.kproject.cleidesigns.feature.design2.xml.adapter.TravelBuddyListAdapter
 
-fun Fragment.initializeFragmentLayout(): ViewBinding {
+fun Fragment.initializeDesign2Layout(): ViewBinding {
     val binding = FragmentDesign2Binding.inflate(layoutInflater)
 
     // RecyclerView of list of places
