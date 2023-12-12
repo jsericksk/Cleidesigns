@@ -30,6 +30,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", platform(libs.findLibrary("compose.bom").get()))
                 add("implementation", libs.findLibrary("activity.compose").get())
                 add("implementation", libs.findLibrary("compose.ui").get())
+                add("implementation", libs.findLibrary("compose.ui.viewbinding").get())
                 add("implementation", libs.findLibrary("compose.ui.graphics").get())
                 add("implementation", libs.findLibrary("compose.ui.tooling").get())
                 add("implementation", libs.findLibrary("compose.ui.tooling.preview").get())
