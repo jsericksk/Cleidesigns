@@ -19,13 +19,14 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -110,7 +111,6 @@ fun Design2Compose() {
                 )
             }
 
-
             val columns = 2
             val rows = if (placeList.isEmpty()) 0 else 1 + (placeList.count() - 1) / columns
             /**
@@ -129,23 +129,25 @@ fun Design2Compose() {
                                     .padding(10.dp)
                                     .clickable { }
                             ) {
-                                Image(
-                                    painter = painterResource(id = placeList[itemIndex].image),
-                                    contentDescription = "",
-                                    contentScale = ContentScale.Crop,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .aspectRatio(1f)
-                                )
+                                Box {
+                                    Image(
+                                        painter = painterResource(id = placeList[itemIndex].image),
+                                        contentDescription = "",
+                                        contentScale = ContentScale.Crop,
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .aspectRatio(1f)
+                                    )
 
-                                Text(
-                                    text = placeList[itemIndex].name,
-                                    color = Color.White,
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    modifier = Modifier
-                                        .padding(start = 12.dp, top = 40.dp)
-                                )
+                                    Text(
+                                        text = placeList[itemIndex].name,
+                                        color = Color.White,
+                                        fontSize = 18.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        modifier = Modifier
+                                            .padding(start = 12.dp, top = 40.dp)
+                                    )
+                                }
                             }
                         }
                     }
@@ -170,7 +172,7 @@ fun Design2Compose() {
                         .padding(top = 22.dp)
                 ) {
                     OutlinedButton(
-                        onClick = { },
+                        onClick = {},
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier
                             .size(120.dp)
@@ -203,7 +205,7 @@ private fun TopBarActionIcons() {
             contentDescription = "",
             modifier = Modifier
                 .padding(top = defaultPadding, end = defaultPadding)
-                .clickable { }
+                .clickable {}
         )
 
         Image(
@@ -211,7 +213,7 @@ private fun TopBarActionIcons() {
             contentDescription = "",
             modifier = Modifier
                 .padding(top = defaultPadding, end = defaultPadding)
-                .clickable { }
+                .clickable {}
         )
     }
 }
@@ -237,7 +239,7 @@ private fun SearchTextField() {
         singleLine = true,
         colors = TextFieldDefaults.textFieldColors(
             cursorColor = Color.White,
-            backgroundColor = Color.Transparent,
+            containerColor = Color.Transparent,
             focusedIndicatorColor = Color(0xFFCDCDCD),
             unfocusedIndicatorColor = Color(0xFFCDCDCD),
             focusedLabelColor = Color(0xFFCDCDCD),
@@ -281,10 +283,12 @@ private fun TravelBuddyListItem(
 
     Card(
         shape = RoundedCornerShape(10.dp),
-        backgroundColor = cardBackgroundColor,
+        colors = CardDefaults.cardColors(
+            containerColor = cardBackgroundColor
+        ),
         modifier = Modifier
             .padding(8.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
     ) {
         Row(
             modifier = Modifier

@@ -78,20 +78,20 @@ dependencies {
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling)
     implementation(libs.compose.ui.tooling.preview)
-    implementation(libs.compose.material)
+    implementation(libs.compose.material3)
 
     // Navigation Component
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // Navigation Compose
+    implementation(libs.navigation.compose)
 
     // Coil
     implementation(libs.coil)
 
     // Splash Screen
     implementation(libs.androidx.core.splashscreen)
-
-    // MPAndroidChart
-    implementation(libs.mp.android.chart)
 
     // Tests
     testImplementation(libs.junit)

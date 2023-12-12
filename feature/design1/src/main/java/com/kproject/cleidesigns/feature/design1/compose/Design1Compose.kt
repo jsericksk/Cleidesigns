@@ -1,8 +1,24 @@
 package com.kproject.cleidesigns.feature.design1.compose
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,8 +68,10 @@ fun Design1Compose() {
         }
 
         Card(
-            backgroundColor = Color.White,
-            elevation = 0.dp
+            // elevation = 0.dp,
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White
+            )
         ) {
             Column(modifier = Modifier.padding(22.dp)) {
                 val avenirFontFamily = FontFamily(Font(R.font.avenirltstd_book, FontWeight.Normal))
@@ -90,10 +108,12 @@ fun Design1Compose() {
                         .padding(top = 22.dp)
                 ) {
                     Button(
-                        onClick = { },
+                        onClick = {},
                         colors = ButtonDefaults.buttonColors(
-                            backgroundColor = Color(0xFFD5A587)
+                            containerColor = Color(0xFFD5A587),
+                            disabledContainerColor = Color(0xFFD5A587)
                         ),
+                        shape = RoundedCornerShape(8.dp),
                         modifier = Modifier
                             .height(60.dp)
                             .fillMaxWidth()
@@ -106,10 +126,11 @@ fun Design1Compose() {
                     }
 
                     OutlinedButton(
-                        onClick = { },
+                        onClick = {},
+                        shape = RoundedCornerShape(8.dp),
                         modifier = Modifier
                             .height(60.dp)
-                            .padding(start = 12.dp)
+                            .padding(start = 12.dp),
                     ) {
                         Icon(
                             imageVector = ImageVector.vectorResource(id = CR.drawable.ic_favorite),

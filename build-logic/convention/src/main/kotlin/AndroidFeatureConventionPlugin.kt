@@ -34,7 +34,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("compose.ui.graphics").get())
                 add("implementation", libs.findLibrary("compose.ui.tooling").get())
                 add("implementation", libs.findLibrary("compose.ui.tooling.preview").get())
-                add("implementation", libs.findLibrary("compose.material").get())
+                add("implementation", libs.findLibrary("compose.material3").get())
 
                 // Coil
                 add("implementation", libs.findLibrary("coil").get())

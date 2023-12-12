@@ -9,10 +9,22 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -20,9 +32,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.presentation.main.Design
 
@@ -32,15 +42,13 @@ fun ViewInspiration(
     navigateBack: () -> Unit
 ) {
     val context = LocalContext.current
-    var backButtonClicks by remember { mutableStateOf(0) }
+    var backButtonClicks by remember { mutableIntStateOf(0) }
     var showDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(text = stringResource(id = R.string.design_inspiration)) },
-                backgroundColor = colorResource(id = R.color.colorPrimary),
-                contentColor = Color.White,
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -53,7 +61,11 @@ fun ViewInspiration(
                         Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                     }
                 },
-                elevation = 0.dp
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = colorResource(id = R.color.colorPrimary),
+                    titleContentColor = Color.White,
+                    navigationIconContentColor = Color.White
+                )
             )
         }
     ) { paddingValues ->
@@ -67,14 +79,18 @@ fun ViewInspiration(
                 painter = painterResource(id = design.image),
                 contentDescription = "",
                 contentScale = ContentScale.Fit,
-                modifier = Modifier.fillMaxSize().weight(1f)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .weight(1f)
             )
 
             Button(
                 onClick = { showDialog = true },
-                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = colorResource(id = R.color.colorPrimary)
+                    containerColor = colorResource(id = R.color.colorPrimary)
                 )
             ) {
                 Text(
@@ -111,49 +127,8 @@ private fun AlertDialog(
     @StringRes messageResId: Int,
     onClickButtonOk: () -> Unit
 ) {
+    // todo: recreate this
     if (showDialog) {
-        AlertDialog(
-            onDismissRequest = { onDismiss.invoke() },
-            title = {
-                Text(
-                    text = stringResource(id = titleResId),
-                    fontSize = 18.sp,
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold
-                )
-            },
-            text = {
-                Text(
-                    text = stringResource(id = messageResId),
-                    color = Color.Black,
-                    fontSize = 16.sp
-                )
-            },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        onDismiss.invoke()
-                        onClickButtonOk.invoke()
-                    }
-                ) {
-                    Text(
-                        text = "OK",
-                        color = MaterialTheme.colors.onSecondary
-                    )
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        onDismiss.invoke()
-                    }
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.button_cancel).uppercase(),
-                        color = MaterialTheme.colors.onSecondary
-                    )
-                }
-            }
-        )
+
     }
 }

@@ -22,13 +22,14 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -137,7 +138,7 @@ private fun TopComponents() {
         singleLine = true,
         colors = TextFieldDefaults.textFieldColors(
             cursorColor = Color.DarkGray,
-            backgroundColor = Color(0xFFF1F1F9),
+            containerColor = Color(0xFFF1F1F9),
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             focusedLabelColor = Color(0xFF5C5C5C),
@@ -152,7 +153,9 @@ private fun CardComponents() {
     Row(Modifier.fillMaxWidth()) {
         Card(
             shape = RoundedCornerShape(16.dp),
-            backgroundColor = Color(0xFF7D29A7),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFF7D29A7)
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
@@ -194,7 +197,9 @@ private fun CardComponents() {
 
         Card(
             shape = RoundedCornerShape(16.dp),
-            backgroundColor = Color(0xFF4D4AD8),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFF4D4AD8)
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
@@ -241,7 +246,9 @@ private fun Statistics() {
     Spacer(Modifier.height(28.dp))
     Card(
         shape = RoundedCornerShape(16.dp),
-        backgroundColor = Color(0xFFF1F1F9),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFFF1F1F9)
+        ),
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(
@@ -307,7 +314,7 @@ private fun Statistics() {
 
 @Composable
 private fun StatisticsOptions() {
-    var selectedOption by remember { mutableStateOf(2) }
+    var selectedOption by remember { mutableIntStateOf(2) }
     val option1BackgroundColor =
             if (selectedOption == 1) Color(0xFF2D2F45) else Color(0xFFF1F1F9)
     val option1TextColor =
