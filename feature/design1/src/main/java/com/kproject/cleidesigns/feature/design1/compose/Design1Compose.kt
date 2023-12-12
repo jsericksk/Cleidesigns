@@ -68,7 +68,6 @@ fun Design1Compose() {
         }
 
         Card(
-            // elevation = 0.dp,
             colors = CardDefaults.cardColors(
                 containerColor = Color.White
             )
