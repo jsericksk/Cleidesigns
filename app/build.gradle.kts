@@ -59,6 +59,7 @@ android {
 
 dependencies {
     // Features
+    implementation(project(":core:common"))
     implementation(project(":feature:design1"))
     implementation(project(":feature:design2"))
     implementation(project(":feature:design3"))
