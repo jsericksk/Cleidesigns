@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.viewbinding.ViewBinding
 import com.kproject.cleidesigns.R
-import com.kproject.cleidesigns.presentation.main.Design
+import com.kproject.cleidesigns.presentation.main.DesignXML
 import com.kproject.cleidesigns.utils.Constants
 
 abstract class BaseFragment : Fragment() {
@@ -28,7 +28,7 @@ abstract class BaseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val design = arguments?.getParcelable<Design>("design")!!
+        val design = arguments?.getParcelable<DesignXML>("design")!!
         val layoutVersion = arguments?.getInt("layoutVersion")
         return initializeLayout(design, layoutVersion)
     }
@@ -39,7 +39,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     private fun initializeLayout(
-        design: Design,
+        design: DesignXML,
         layoutVersion: Int?
     ): View {
         lateinit var view: View
@@ -73,7 +73,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    private fun viewInspirationLayout(design: Design): View {
+    private fun viewInspirationLayout(design: DesignXML): View {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {

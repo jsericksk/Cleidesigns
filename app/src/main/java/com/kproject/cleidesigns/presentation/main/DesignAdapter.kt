@@ -9,8 +9,8 @@ import coil.size.Scale
 import com.kproject.cleidesigns.databinding.RecyclerviewItemDesignBinding
 
 class DesignAdapter(
-    private val designList: List<Design>,
-    private val onItemClickListener: ((design: Design, view: View, position: Int) -> Unit)
+    private val designList: List<DesignXML>,
+    private val onItemClickListener: ((design: DesignXML, view: View, position: Int) -> Unit)
 ) : RecyclerView.Adapter<DesignAdapter.ImageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, view: Int): ImageViewHolder {
@@ -29,7 +29,7 @@ class DesignAdapter(
         private val binding: RecyclerviewItemDesignBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bindView(design: Design, position: Int) {
+        fun bindView(design: DesignXML, position: Int) {
             with (binding) {
                 ivImage.load(design.image) {
                     scale(Scale.FILL)

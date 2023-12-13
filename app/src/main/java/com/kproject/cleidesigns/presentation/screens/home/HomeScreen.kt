@@ -48,12 +48,15 @@ import com.kproject.core.common.theme.CleidesignsTheme
 
 @Composable
 fun HomeScreen(onNavigateToDesignViewScreen: (Design, DesignType) -> Unit) {
-    MainContent()
+    MainContent(
+        onViewDesign = onNavigateToDesignViewScreen
+    )
 }
 
 @Composable
 private fun MainContent(
     modifier: Modifier = Modifier,
+    onViewDesign: (Design, DesignType) -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -83,7 +86,7 @@ private fun MainContent(
                 .padding(12.dp)
         ) {
             DesignList(
-                onViewDesign = {}
+                onViewDesign = onViewDesign
             )
         }
     }
@@ -92,7 +95,7 @@ private fun MainContent(
 @Composable
 private fun DesignList(
     modifier: Modifier = Modifier,
-    onViewDesign: (DesignType) -> Unit
+    onViewDesign: (Design, DesignType) -> Unit,
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -110,8 +113,8 @@ private fun DesignList(
 @Composable
 private fun DesignListItem(
     modifier: Modifier = Modifier,
-    design: com.kproject.cleidesigns.presentation.main.Design,
-    onViewDesign: (DesignType) -> Unit
+    design: Design,
+    onViewDesign: (Design, DesignType) -> Unit
 ) {
     var showDropdownMenu by remember { mutableStateOf(false) }
     Card(
@@ -126,7 +129,7 @@ private fun DesignListItem(
         Box {
             Image(
                 painter = painterResource(id = design.image),
-                contentDescription = "Design image",
+                contentDescription = "DesignXML image",
                 modifier = Modifier.fillMaxSize()
             )
             Text(
@@ -145,7 +148,9 @@ private fun DesignListItem(
             MenuActionOptions(
                 showOptionsMenu = showDropdownMenu,
                 onDismiss = { showDropdownMenu = false },
-                onViewDesign = onViewDesign
+                onViewDesign = { designType ->
+                    onViewDesign.invoke(design, designType)
+                }
             )
         }
     }

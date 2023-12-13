@@ -12,7 +12,7 @@ import androidx.navigation.navOptions
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.databinding.FragmentHomeBinding
-import com.kproject.cleidesigns.presentation.main.Design
+import com.kproject.cleidesigns.presentation.main.DesignXML
 import com.kproject.cleidesigns.presentation.main.DesignAdapter
 import com.kproject.cleidesigns.utils.Constants
 import com.kproject.cleidesigns.utils.ListUtils
@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
         binding.rvDesignList.layoutManager = layoutManager
     }
 
-    private fun showPopupMenu(design: Design, view: View) {
+    private fun showPopupMenu(design: DesignXML, view: View) {
         val popupMenu = PopupMenu(requireContext(), view)
         popupMenu.inflate(R.menu.menu_popup_main)
 
@@ -82,7 +82,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun navigate(design: Design, layoutVersion: Int) {
+    private fun navigate(design: DesignXML, layoutVersion: Int) {
         val options = navOptions {
             anim {
                 enter = R.anim.slide_in_right

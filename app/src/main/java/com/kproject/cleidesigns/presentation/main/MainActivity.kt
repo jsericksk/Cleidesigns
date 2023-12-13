@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.kproject.cleidesigns.R
+import com.kproject.cleidesigns.presentation.navigation.NavigationGraph
 import com.kproject.cleidesigns.presentation.screens.home.HomeScreen
 import com.kproject.core.common.theme.CleidesignsTheme
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   HomeScreen()
+                   NavigationGraph()
                 }
             }
         }
