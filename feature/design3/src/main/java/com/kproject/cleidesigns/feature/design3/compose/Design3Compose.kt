@@ -55,7 +55,7 @@ import com.github.mikephil.charting.charts.BarChart
 import com.kproject.cleidesigns.feature.design3.utils.initBarChart
 
 @Composable
-fun Design3Compose() {
+internal fun Design3Compose() {
     val scrollState = rememberScrollState()
     Column(
         modifier = Modifier.fillMaxSize()

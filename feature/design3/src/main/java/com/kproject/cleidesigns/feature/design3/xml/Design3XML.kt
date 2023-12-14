@@ -1,15 +1,14 @@
 package com.kproject.cleidesigns.feature.design3.xml
 
-import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.kproject.cleidesigns.feature.design3.R
 import com.kproject.cleidesigns.feature.design3.databinding.FragmentDesign3Binding
 import com.kproject.cleidesigns.feature.design3.utils.initBarChart
 
-fun Fragment.initializeDesign3Layout(): ViewBinding {
-    val binding = FragmentDesign3Binding.inflate(layoutInflater)
-
-    with(binding) {
+@Composable
+internal fun Design3XML() {
+    AndroidViewBinding(FragmentDesign3Binding::inflate) {
         cpIncome.setOnClickListener {
             cpIncome.setChipBackgroundColorResource(R.color.chip_background_selected)
             cpIncome.setTextColor(android.graphics.Color.WHITE)
@@ -27,5 +26,4 @@ fun Fragment.initializeDesign3Layout(): ViewBinding {
 
         bcChart.initBarChart()
     }
-    return binding
 }

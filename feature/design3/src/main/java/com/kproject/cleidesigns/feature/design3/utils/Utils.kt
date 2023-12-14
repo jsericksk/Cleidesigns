@@ -12,7 +12,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 
 val days = arrayOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
 
-fun BarChart.initBarChart() {
+internal fun BarChart.initBarChart() {
     val barChart = this
     val entries: ArrayList<BarEntry> = ArrayList()
     entries.add(BarEntry(0f, 205f))

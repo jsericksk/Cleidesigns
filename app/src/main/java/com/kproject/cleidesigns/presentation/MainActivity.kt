@@ -1,16 +1,14 @@
-package com.kproject.cleidesigns.presentation.main
+package com.kproject.cleidesigns.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.kproject.cleidesigns.R
 import com.kproject.cleidesigns.presentation.navigation.NavigationGraph
-import com.kproject.cleidesigns.presentation.screens.home.HomeScreen
 import com.kproject.core.common.theme.CleidesignsTheme
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   NavigationGraph()
+                    NavigationGraph()
                 }
             }
         }

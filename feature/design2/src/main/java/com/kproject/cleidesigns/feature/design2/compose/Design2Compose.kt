@@ -48,7 +48,7 @@ import com.kproject.cleidesigns.feature.design2.model.placeList
 import com.kproject.cleidesigns.feature.design2.model.travelBuddyList
 
 @Composable
-fun Design2Compose() {
+internal fun Design2Compose() {
     Column(
         modifier = Modifier
             .fillMaxSize()

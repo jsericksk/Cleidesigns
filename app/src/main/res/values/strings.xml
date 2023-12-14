@@ -8,15 +8,10 @@
         of this design. If the page cannot be loaded, the project may have been deleted.
         Do you want to continue?</string>
 
-    <!-- HomeFragment -->
     <string name="menu_options">Options</string>
-
     <string name="view_xml_version">View in XML</string>
     <string name="view_compose_version">View in Compose</string>
     <string name="view_design_inspiration">View Inpiration</string>
     <string name="view_source_project">View Source Project</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
