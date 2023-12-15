@@ -1,14 +1,19 @@
 package com.kproject.cleidesigns.feature.design1.compose
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -81,30 +86,27 @@ fun Design1Compose() {
                     fontFamily = avenirFontFamily,
                     fontWeight = FontWeight.Bold
                 )
-
+                Spacer(Modifier.height(16.dp))
                 Text(
                     text = "\$249",
                     color = Color(0xFF020102),
                     fontSize = 20.sp,
                     fontFamily = avenirFontFamily,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(top = 16.dp)
                 )
-
+                Spacer(Modifier.height(16.dp))
                 Text(
                     text = stringResource(id = R.string.item_text),
                     color = Color(0xFF101010),
                     fontSize = 18.sp,
                     fontFamily = avenirFontFamily,
-                    modifier = Modifier.padding(top = 16.dp)
                 )
-
+                Spacer(Modifier.height(22.dp))
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 22.dp)
                 ) {
                     Button(
                         onClick = {},
@@ -112,7 +114,7 @@ fun Design1Compose() {
                             containerColor = Color(0xFFD5A587),
                             disabledContainerColor = Color(0xFFD5A587)
                         ),
-                        shape = RoundedCornerShape(8.dp),
+                        shape = RoundedCornerShape(4.dp),
                         modifier = Modifier
                             .height(60.dp)
                             .fillMaxWidth()
@@ -123,18 +125,20 @@ fun Design1Compose() {
                             color = Color.White
                         )
                     }
-
+                    Spacer(Modifier.width(12.dp))
                     OutlinedButton(
                         onClick = {},
-                        shape = RoundedCornerShape(8.dp),
+                        shape = RoundedCornerShape(4.dp),
+                        border = BorderStroke(1.dp, Color(0xFFC3C3C3)),
+                        contentPadding = PaddingValues(0.dp),
                         modifier = Modifier
-                            .height(60.dp)
-                            .padding(start = 12.dp),
+                            .size(60.dp),
                     ) {
                         Icon(
                             imageVector = ImageVector.vectorResource(id = CR.drawable.ic_favorite),
                             contentDescription = null,
-                            tint = Color.Black
+                            tint = Color(0xFF0B0B0B),
+                            modifier = Modifier.size(26.dp)
                         )
                     }
                 }
