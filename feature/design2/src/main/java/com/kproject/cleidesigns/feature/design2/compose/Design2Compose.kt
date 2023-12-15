@@ -1,5 +1,6 @@
 package com.kproject.cleidesigns.feature.design2.compose
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,11 +9,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -28,8 +32,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -174,10 +180,11 @@ internal fun Design2Compose() {
                     OutlinedButton(
                         onClick = {},
                         shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, Color(0xFFC3C3C3)),
                         modifier = Modifier
                             .size(120.dp)
                             .padding(start = 8.dp, end = 12.dp)
-                            .aspectRatio(1f)
+                            .aspectRatio(1f),
                     ) {
                         Icon(
                             imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_add),
@@ -220,11 +227,11 @@ private fun TopBarActionIcons() {
 
 @Composable
 private fun SearchTextField() {
-    val textFieldValue = remember { mutableStateOf("") }
+    var searchText by remember { mutableStateOf("") }
     OutlinedTextField(
-        value = textFieldValue.value,
+        value = searchText,
         onValueChange = { value ->
-            textFieldValue.value = value
+            searchText = value
         },
         textStyle = TextStyle(color = Color.White, fontSize = 18.sp),
         label = { Text(text = "Search") },
@@ -275,14 +282,9 @@ private fun TravelBuddyListItem(
     travelBuddy: TravelBuddy,
     cardBackgroundColor: Color
 ) {
-    val travelBuddyStatus = if (travelBuddy.isFriend) {
-        "Friend"
-    } else {
-        "Unknown"
-    }
-
+    val travelBuddyStatus = if (travelBuddy.isFriend) "Friend" else "Unknown"
     Card(
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(22.dp),
         colors = CardDefaults.cardColors(
             containerColor = cardBackgroundColor
         ),
@@ -292,8 +294,7 @@ private fun TravelBuddyListItem(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 12.dp, top = 12.dp)
+                .padding(start = 12.dp, end = 12.dp, top = 12.dp)
         ) {
             Column {
                 Text(
@@ -302,56 +303,60 @@ private fun TravelBuddyListItem(
                     fontSize = 14.sp,
                 )
 
+                Spacer(Modifier.height(6.dp))
+
                 Text(
                     text = travelBuddy.name,
                     color = Color.White,
                     fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(top = 6.dp)
+                    fontWeight = FontWeight.Bold
                 )
+
+                Spacer(Modifier.height(8.dp))
 
                 Text(
                     text = "Age",
                     color = Color.White,
-                    fontSize = 14.sp,
-                    modifier = Modifier
-                        .padding(top = 8.dp)
+                    fontSize = 14.sp
                 )
+
+                Spacer(Modifier.height(6.dp))
 
                 Text(
                     text = travelBuddy.age.toString(),
                     color = Color.White,
                     fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(top = 6.dp)
+                    fontWeight = FontWeight.Bold
                 )
+
+                Spacer(Modifier.height(8.dp))
 
                 Text(
                     text = "Status",
                     color = Color.White,
-                    fontSize = 14.sp,
-                    modifier = Modifier
-                        .padding(top = 8.dp)
+                    fontSize = 14.sp
                 )
+
+                Spacer(Modifier.height(6.dp))
 
                 Text(
                     text = travelBuddyStatus,
                     color = Color.White,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(top = 6.dp, bottom = 12.dp)
                 )
+
+                Spacer(Modifier.height(12.dp))
             }
+
+            Spacer(Modifier.width(14.dp))
 
             Image(
                 painter = painterResource(id = travelBuddy.personImage),
                 contentDescription = "",
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
-                    .size(width = 150.dp, height = 150.dp)
+                    .height(150.dp)
                     .align(Alignment.Bottom)
             )
         }
