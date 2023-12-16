@@ -153,7 +153,7 @@ private fun TopComponents() {
 private fun CardComponents() {
     Row(Modifier.fillMaxWidth()) {
         TransactionCard(
-            iconResId = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_made,
+            iconResId = CR.drawable.ic_call_made,
             type = "Income",
             cardBackgroundColor = Color(0xFF7D29A7),
             iconBackgroundColor = Color(0xFF5C1182),
@@ -164,7 +164,7 @@ private fun CardComponents() {
         Spacer(Modifier.width(10.dp))
 
         TransactionCard(
-            iconResId = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_received,
+            iconResId = CR.drawable.ic_call_received,
             iconRotation = -90f,
             type = "Expenses",
             cardBackgroundColor = Color(0xFF4D4AD8),
