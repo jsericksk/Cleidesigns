@@ -53,6 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.github.mikephil.charting.charts.BarChart
 import com.kproject.cleidesigns.feature.design3.utils.initBarChart
+import com.kproject.cleidesigns.core.commom.R as CR
 
 @Composable
 internal fun Design3Compose() {
@@ -89,19 +90,19 @@ internal fun Design3Compose() {
                 items = listOf(
                     BottomNavigationItem(
                         "Home",
-                        com.kproject.cleidesigns.core.commom.R.drawable.ic_home
+                        CR.drawable.ic_home
                     ),
                     BottomNavigationItem(
                         "Statistics",
-                        com.kproject.cleidesigns.core.commom.R.drawable.ic_bar_chart
+                        CR.drawable.ic_bar_chart
                     ),
                     BottomNavigationItem(
                         "Transactions",
-                        com.kproject.cleidesigns.core.commom.R.drawable.ic_currency_exchange
+                        CR.drawable.ic_currency_exchange
                     ),
                     BottomNavigationItem(
                         "Profile",
-                        com.kproject.cleidesigns.core.commom.R.drawable.ic_person
+                        CR.drawable.ic_person
                     ),
                 )
             )
@@ -120,11 +121,11 @@ private fun TopComponents() {
 
     Spacer(modifier = Modifier.height(18.dp))
 
-    val textFieldValue = remember { mutableStateOf("") }
+    var textFieldValue by remember { mutableStateOf("") }
     TextField(
-        value = textFieldValue.value,
+        value = textFieldValue,
         onValueChange = { value ->
-            textFieldValue.value = value
+            textFieldValue = value
         },
         label = { Text(text = "Search...") },
         leadingIcon = {
@@ -151,90 +152,76 @@ private fun TopComponents() {
 @Composable
 private fun CardComponents() {
     Row(Modifier.fillMaxWidth()) {
-        Card(
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFF7D29A7)
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
-        ) {
-            Row(
-                modifier = Modifier.padding(10.dp)
-            ) {
-                Image(
-                    imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_made),
-                    contentDescription = "Income",
-                    contentScale = ContentScale.Inside,
-                    colorFilter = ColorFilter.tint(Color.White),
-                    modifier = Modifier
-                        .size(50.dp)
-                        .clip(CircleShape)
-                        .background(color = Color(0xFF5C1182), shape = CircleShape)
-                )
-
-                Spacer(Modifier.width(10.dp))
-
-                Column {
-                    Text(
-                        text = "Income",
-                        color = Color(0xFFC3C3C3),
-                        fontSize = 15.sp
-                    )
-
-                    Text(
-                        text = "$ 5 860",
-                        color = Color(0xFFECECEC),
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-            }
-        }
+        TransactionCard(
+            iconResId = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_made,
+            type = "Income",
+            cardBackgroundColor = Color(0xFF7D29A7),
+            iconBackgroundColor = Color(0xFF5C1182),
+            value = "$ 5 860",
+            modifier = Modifier.weight(1f)
+        )
 
         Spacer(Modifier.width(10.dp))
 
-        Card(
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFF4D4AD8)
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
+        TransactionCard(
+            iconResId = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_received,
+            iconRotation = -90f,
+            type = "Expenses",
+            cardBackgroundColor = Color(0xFF4D4AD8),
+            iconBackgroundColor = Color(0xFF312EAF),
+            value = "$ 1 920",
+            modifier = Modifier.weight(1f)
+        )
+    }
+}
+
+@Composable
+private fun TransactionCard(
+    modifier: Modifier = Modifier,
+    iconResId: Int,
+    iconRotation: Float = 0f,
+    type: String,
+    cardBackgroundColor: Color,
+    iconBackgroundColor: Color,
+    value: String
+) {
+    Card(
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = cardBackgroundColor
+        ),
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier.padding(10.dp)
         ) {
-            Row(
-                modifier = Modifier.padding(10.dp)
-            ) {
-                Image(
-                    imageVector = ImageVector.vectorResource(id = com.kproject.cleidesigns.core.commom.R.drawable.ic_call_received),
-                    contentDescription = "Expenses",
-                    contentScale = ContentScale.Inside,
-                    colorFilter = ColorFilter.tint(Color.White),
-                    modifier = Modifier
-                        .size(50.dp)
-                        .clip(CircleShape)
-                        .rotate(-90f)
-                        .background(color = Color(0xFF312EAF), shape = CircleShape)
+            Image(
+                imageVector = ImageVector.vectorResource(id = iconResId),
+                contentDescription = type,
+                contentScale = ContentScale.Inside,
+                colorFilter = ColorFilter.tint(Color.White),
+                modifier = Modifier
+                    .size(50.dp)
+                    .clip(CircleShape)
+                    .rotate(iconRotation)
+                    .background(color = iconBackgroundColor, shape = CircleShape)
+            )
+
+            Spacer(Modifier.width(10.dp))
+
+            Column {
+                Text(
+                    text = type,
+                    color = Color(0xFFC3C3C3),
+                    fontSize = 15.sp
                 )
 
-                Spacer(Modifier.width(10.dp))
-
-                Column {
-                    Text(
-                        text = "Expenses",
-                        color = Color(0xFFC3C3C3),
-                        fontSize = 15.sp
-                    )
-
-                    Text(
-                        text = "$ 1 920",
-                        color = Color(0xFFECECEC),
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                Text(
+                    text = value,
+                    color = Color(0xFFECECEC),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
             }
         }
     }
@@ -460,7 +447,6 @@ private fun BottomNavigationView(
     initialSelectedItemIndex: Int = 1
 ) {
     var selectedItemIndex by remember { mutableIntStateOf(initialSelectedItemIndex) }
-
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
@@ -474,10 +460,11 @@ private fun BottomNavigationView(
                 item = item,
                 isSelected = index == selectedItemIndex,
                 activeTextColor = activeTextColor,
-                inactiveTextColor = inactiveTextColor
-            ) {
-                selectedItemIndex = index
-            }
+                inactiveTextColor = inactiveTextColor,
+                onItemClick = {
+                    selectedItemIndex = index
+                }
+            )
         }
     }
 }
@@ -486,16 +473,15 @@ private fun BottomNavigationView(
 private fun BottomNavigationViewItem(
     item: BottomNavigationItem,
     isSelected: Boolean = false,
-    activeTextColor: Color = Color.Black,
+    activeTextColor: Color = Color(0xFF070707),
     inactiveTextColor: Color = Color(0xFF929292),
     onItemClick: () -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.clickable {
-            onItemClick()
-        }
+        modifier = Modifier
+            .clickable { onItemClick() }
     ) {
         Icon(
             painter = painterResource(id = item.icon),
