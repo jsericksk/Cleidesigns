@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background">#FAFAFA</color>
+    <color name="background">#fafafa</color>
     <color name="login_circle_shape_1">#2E3192</color>
     <color name="login_circle_shape_2">#014A81</color>
     <color name="login_icon_background">#03C0F3</color>
-    <color name="forgot_password_text">#E5E5E5</color>
+    <color name="forgot_password_text">#B3B3B3</color>
     <color name="textfield_background">#FFFFFF</color>
+    <color name="textfield_border">#C1C1C1</color>
     <color name="main_text">#0C0C0C</color>
 </resources>
