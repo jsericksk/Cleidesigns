@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#fafafa</color>
-    <color name="login_circle_shape_1">#2E3192</color>
-    <color name="login_circle_shape_2">#014A81</color>
+    <color name="primary_circle">#2E3192</color>
+    <color name="secondary_circle">#014A81</color>
     <color name="login_icon_background">#03C0F3</color>
     <color name="forgot_password_text">#B3B3B3</color>
     <color name="textfield_background">#FFFFFF</color>

@@ -21,7 +21,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -36,6 +35,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
@@ -54,36 +54,21 @@ import com.kproject.core.common.theme.CleidesignsTheme
 
 @Composable
 internal fun Design4Compose() {
-    Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.background))
-    ) { paddingValues ->
-        MainContent(
-            modifier = Modifier.padding(paddingValues)
-        )
-    }
-}
-
-@Composable
-private fun MainContent(
-    modifier: Modifier = Modifier
-) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
+    val primaryCircleColor = colorResource(id = R.color.primary_circle)
+    val secondaryCircleColor = colorResource(id = R.color.secondary_circle)
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.background))
             .drawBehind {
-                drawCircle(
-                    color = Color.Blue,
-                    radius = 100.dp.toPx(),
-                    style = Fill,
-                    center = Offset(x = 0f, y = 0f)
+                drawCircles(
+                    primaryCircleColor = primaryCircleColor,
+                    secondaryCircleColor = secondaryCircleColor
                 )
             }
     ) {
@@ -94,7 +79,7 @@ private fun MainContent(
             fontWeight = FontWeight.Bold
         )
 
-        Spacer(Modifier.height(28.dp))
+        Spacer(Modifier.height(34.dp))
 
         Column {
             val loginIconSize = 50
@@ -163,10 +148,8 @@ private fun MainContent(
                 ),
                 elevation = ButtonDefaults.buttonElevation(
                     defaultElevation = 12.dp,
-                    pressedElevation = 12.dp,
-                    focusedElevation = 12.dp,
-                    hoveredElevation = 12.dp,
-                    disabledElevation = 12.dp
+                    pressedElevation = 28.dp,
+                    focusedElevation = 28.dp
                 ),
                 contentPadding = PaddingValues(16.dp)
             ) {
@@ -237,6 +220,39 @@ private fun LoginTextField(
                 elevation = 12.dp,
                 shape = shape
             )
+    )
+}
+
+private fun DrawScope.drawCircles(
+    primaryCircleColor: Color,
+    secondaryCircleColor: Color,
+) {
+    drawCircle(
+        color = primaryCircleColor,
+        radius = 150.dp.toPx(),
+        style = Fill,
+        center = Offset(x = 0f, y = 0f)
+    )
+
+    drawCircle(
+        color = primaryCircleColor,
+        radius = 120.dp.toPx(),
+        style = Fill,
+        center = Offset(x = 120.dp.toPx(), y = -30.dp.toPx())
+    )
+
+    drawCircle(
+        color = secondaryCircleColor,
+        radius = 150.dp.toPx(),
+        style = Fill,
+        center = Offset(x = size.width + 50.dp.toPx(), y = size.height)
+    )
+
+    drawCircle(
+        color = secondaryCircleColor,
+        radius = 120.dp.toPx(),
+        style = Fill,
+        center = Offset(x = size.width - 150.dp.toPx(), y = size.height + 50.dp.toPx())
     )
 }
 
