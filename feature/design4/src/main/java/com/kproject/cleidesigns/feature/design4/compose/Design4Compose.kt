@@ -31,7 +31,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -202,24 +201,20 @@ private fun LoginTextField(
         singleLine = true,
         colors = TextFieldDefaults.colors(
             focusedTextColor = textAndIconColor,
-            unfocusedTextColor = textAndIconColor.copy(0.7f),
+            unfocusedTextColor = textAndIconColor,
             focusedContainerColor = Color.White,
             unfocusedContainerColor = Color.White,
             focusedIndicatorColor = colorResource(id = R.color.textfield_border),
             unfocusedIndicatorColor = colorResource(id = R.color.textfield_border),
             focusedLabelColor = textAndIconColor,
-            unfocusedLabelColor = textAndIconColor.copy(0.7f),
+            unfocusedLabelColor = textAndIconColor,
             focusedPlaceholderColor = textAndIconColor,
-            unfocusedPlaceholderColor = textAndIconColor.copy(0.7f),
+            unfocusedPlaceholderColor = textAndIconColor,
             focusedLeadingIconColor = textAndIconColor,
-            unfocusedLeadingIconColor = textAndIconColor.copy(0.7f),
+            unfocusedLeadingIconColor = textAndIconColor,
         ),
         modifier = modifier
             .fillMaxWidth()
-            .shadow(
-                elevation = 12.dp,
-                shape = shape
-            )
     )
 }
 
