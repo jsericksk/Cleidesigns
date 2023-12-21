@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.kproject.cleidesigns.feature.design1.Design1
 import com.kproject.cleidesigns.feature.design2.Design2
 import com.kproject.cleidesigns.feature.design3.Design3
+import com.kproject.cleidesigns.feature.design4.Design4
 import com.kproject.cleidesigns.presentation.screens.model.Design
 import com.kproject.cleidesigns.presentation.screens.model.DesignType
 
@@ -44,5 +45,6 @@ private fun DesignContent(
         1 -> Design1(viewInXml)
         2 -> Design2(viewInXml)
         3 -> Design3(viewInXml)
+        4 -> Design4(viewInXml)
     }
 }

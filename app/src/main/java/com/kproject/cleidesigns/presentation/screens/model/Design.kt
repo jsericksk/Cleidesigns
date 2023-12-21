@@ -38,5 +38,12 @@ val designs = listOf(
         title = "Design 3",
         sourceUrl = "https://dribbble.com/shots/17476661-ProCoin-Banking-App-Design",
         tags = "banking app, chart, statistics"
+    ),
+    Design(
+        id = 4,
+        image = R.drawable.design_inspiration_4,
+        title = "Design 4",
+        sourceUrl = "https://dribbble.com/shots/4395258-Dribble",
+        tags = "login screen"
     )
 )

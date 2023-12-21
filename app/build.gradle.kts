@@ -63,6 +63,7 @@ dependencies {
     implementation(project(":feature:design1"))
     implementation(project(":feature:design2"))
     implementation(project(":feature:design3"))
+    implementation(project(":feature:design4"))
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.constraintlayout)
