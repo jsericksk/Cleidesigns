@@ -11,10 +11,10 @@ data class Design(
     val tags: String = "wrist app, item details, buy"
 )
 
-enum class DesignType {
-    XML,
-    Compose,
-    Inspiration
+enum class DesignType(@DrawableRes val iconResId: Int) {
+    XML(iconResId = R.drawable.ic_density_medium,),
+    Compose(iconResId = R.drawable.ic_code),
+    Inspiration(iconResId = R.drawable.ic_lightbulb);
 }
 
 val designs = listOf(

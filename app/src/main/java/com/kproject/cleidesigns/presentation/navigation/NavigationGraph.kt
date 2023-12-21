@@ -70,10 +70,7 @@ fun NavigationGraph() {
                 }
                 DesignViewScreen(
                     design = design,
-                    designType = designType,
-                    onNavigateBack = {
-                        navController.popBackStack()
-                    }
+                    designType = designType
                 )
             }
         }
