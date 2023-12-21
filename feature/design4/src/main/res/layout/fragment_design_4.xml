@@ -1,99 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:ignore="HardcodedText">
 
-    <TextView
-        android:id="@+id/tvLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:textColor="#0C0C0C"
-        android:textSize="34sp"
-        android:textStyle="bold" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.kproject.cleidesigns.feature.design4.xml.CircleCanvasView
+        android:id="@+id/circleCanvasView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:paddingEnd="50dp">
+        android:layout_height="match_parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilUsername"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textColor="#0C0C0C"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="12dp"
-            app:boxBackgroundColor="@color/textfield_background"
-            app:boxCornerRadiusTopEnd="50dp"
-            app:boxStrokeColor="@color/textfield_border"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintEnabled="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/ic_outline_person"
-            app:startIconTint="@color/main_text">
+            android:layout_marginTop="34dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUsername"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUsername"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/username"
-                android:inputType="text"
-                android:maxLines="1"
-                android:textColorHint="@color/main_text"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:paddingEnd="50dp"
+                app:boxBackgroundColor="@color/textfield_background"
+                app:boxCornerRadiusTopEnd="50dp"
+                app:boxStrokeColor="@color/textfield_border"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintEnabled="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_outline_person"
+                app:startIconTint="@color/main_text">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/username"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColorHint="@color/main_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPassword"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="50dp"
+                app:boxBackgroundColor="@color/textfield_background"
+                app:boxCornerRadiusBottomEnd="50dp"
+                app:boxStrokeColor="@color/textfield_border"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintEnabled="false"
+                app:layout_constraintTop_toBottomOf="@id/tilUsername"
+                app:startIconDrawable="@drawable/ic_key"
+                app:startIconTint="@color/main_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColorHint="@color/main_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btAdd"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="25dp"
+                android:backgroundTint="@color/login_icon_background"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:icon="@drawable/ic_arrow_right_alt"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="24dp"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/IconButton.Circle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:elevation="12dp"
-            app:boxBackgroundColor="@color/textfield_background"
-            app:boxCornerRadiusBottomEnd="50dp"
-            app:boxStrokeColor="@color/textfield_border"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintEnabled="false"
-            app:layout_constraintTop_toBottomOf="@id/tilUsername"
-            app:startIconDrawable="@drawable/ic_key"
-            app:startIconTint="@color/main_text">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:textColorHint="@color/main_text"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_gravity="end"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="80dp"
+            android:text="@string/forgot_password"
+            android:textColor="@color/forgot_password_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btAdd"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cornerRadius="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:icon="@drawable/ic_arrow_right_alt"
-            app:iconTint="#ff0000" />
+            android:id="@+id/btRegister"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="36dp"
+            android:elevation="12dp"
+            android:padding="16dp"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/textfield_background"
+            app:shapeAppearanceOverlay="@style/ButtonRegisterShape" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
