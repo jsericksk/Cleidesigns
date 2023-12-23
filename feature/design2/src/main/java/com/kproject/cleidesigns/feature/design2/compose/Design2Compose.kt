@@ -20,8 +20,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -75,10 +73,10 @@ internal fun Design2Compose() {
 
             Image(
                 painter = painterResource(id = R.drawable.ic_custom_hand),
-                contentDescription = "",
+                contentDescription = "Hand icon",
+                contentScale = ContentScale.FillBounds,
                 modifier = Modifier
                     .size(150.dp)
-                    .padding(end = 22.dp)
             )
 
             Column {
@@ -204,9 +202,6 @@ internal fun Design2Compose() {
 private fun TopBarActionIcons() {
     val defaultPadding = 22.dp
     Row {
-        /**
-         * Used Image instead of IconButton to keep icon color.
-         */
         Image(
             painter = painterResource(id = R.drawable.ic_custom_notification),
             contentDescription = "",
@@ -242,15 +237,16 @@ private fun SearchTextField() {
                 tint = Color.White
             )
         },
-        shape = CircleShape.copy(CornerSize(16.dp)),
+        shape = RoundedCornerShape(16.dp),
         singleLine = true,
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.colors(
             cursorColor = Color.White,
-            containerColor = Color.Transparent,
+            focusedContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
             focusedIndicatorColor = Color(0xFFCDCDCD),
             unfocusedIndicatorColor = Color(0xFFCDCDCD),
-            focusedLabelColor = Color(0xFFCDCDCD),
-            unfocusedLabelColor = Color(0xFFCDCDCD),
+            focusedLabelColor = Color.White,
+            unfocusedLabelColor = Color.White,
         ),
         modifier = Modifier
             .fillMaxWidth()

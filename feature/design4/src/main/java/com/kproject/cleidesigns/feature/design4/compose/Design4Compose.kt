@@ -180,13 +180,13 @@ private fun LoginTextField(
         onValueChange = onTextChange,
         textStyle = TextStyle(
             fontSize = 18.sp,
-            fontWeight = FontWeight.Medium
+            fontWeight = FontWeight.Bold
         ),
         placeholder = {
             Text(
                 text = hint,
                 fontSize = 18.sp,
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.Bold
             )
         },
         leadingIcon = {

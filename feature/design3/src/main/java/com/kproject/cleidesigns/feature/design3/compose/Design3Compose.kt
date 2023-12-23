@@ -1,10 +1,8 @@
 package com.kproject.cleidesigns.feature.design3.compose
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,7 +24,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -40,6 +40,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -75,34 +76,37 @@ internal fun Design3Compose() {
             Statistics()
             Spacer(Modifier.height(28.dp))
             LastStatistics()
-            Spacer(Modifier.height(28.dp))
         }
 
-        Spacer(
-            Modifier
-                .fillMaxWidth()
-                .height(1.dp)
-                .border(BorderStroke(1.dp, Color(0xFFF5F4F4)))
-        )
+        Spacer(Modifier.height(12.dp))
 
-        Column(modifier = Modifier.padding(start = 24.dp, end = 24.dp)) {
+        Column {
+            Divider(
+                color = Color(0xFFF5F4F4),
+                thickness = 1.dp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .shadow(
+                        elevation = 4.dp,
+                    )
+            )
             BottomNavigationView(
                 items = listOf(
                     BottomNavigationItem(
-                        "Home",
-                        CR.drawable.ic_home
+                        title = "Home",
+                        icon = CR.drawable.ic_home
                     ),
                     BottomNavigationItem(
-                        "Statistics",
-                        CR.drawable.ic_bar_chart
+                        title = "Statistics",
+                        icon = CR.drawable.ic_bar_chart
                     ),
                     BottomNavigationItem(
-                        "Transactions",
-                        CR.drawable.ic_currency_exchange
+                        title = "Transactions",
+                        icon = CR.drawable.ic_currency_exchange
                     ),
                     BottomNavigationItem(
-                        "Profile",
-                        CR.drawable.ic_person
+                        title = "Profile",
+                        icon = CR.drawable.ic_person
                     ),
                 )
             )
@@ -137,12 +141,13 @@ private fun TopComponents() {
         },
         shape = CircleShape.copy(CornerSize(16.dp)),
         singleLine = true,
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.colors(
             cursorColor = Color.DarkGray,
-            containerColor = Color(0xFFF1F1F9),
+            focusedContainerColor = Color(0xFFF1F1F9),
+            unfocusedContainerColor = Color(0xFFF1F1F9),
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            focusedLabelColor = Color(0xFF5C5C5C),
+            focusedLabelColor = MaterialTheme.colorScheme.primary,
             unfocusedLabelColor = Color(0xFF5C5C5C),
         ),
         modifier = Modifier.fillMaxWidth()
@@ -266,8 +271,8 @@ private fun Statistics() {
                 Box(
                     modifier = Modifier
                         .background(
-                            Color(0xFFDCDCE7),
-                            CircleShape.copy(CornerSize(8.dp))
+                            color = Color(0xFFDCDCE7),
+                            shape = RoundedCornerShape(8.dp)
                         )
                         .clickable { }
                 ) {
@@ -440,8 +445,8 @@ private fun LastStatistics() {
 
 @Composable
 private fun BottomNavigationView(
-    items: List<BottomNavigationItem>,
     modifier: Modifier = Modifier,
+    items: List<BottomNavigationItem>,
     activeTextColor: Color = Color.Black,
     inactiveTextColor: Color = Color(0xFF929292),
     initialSelectedItemIndex: Int = 1
@@ -453,7 +458,7 @@ private fun BottomNavigationView(
         modifier = modifier
             .fillMaxWidth()
             .background(Color.White)
-            .padding(top = 4.dp, bottom = 4.dp)
+            .padding(vertical = 8.dp, horizontal = 24.dp)
     ) {
         items.forEachIndexed { index, item ->
             BottomNavigationViewItem(
@@ -480,8 +485,7 @@ private fun BottomNavigationViewItem(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .clickable { onItemClick() }
+        modifier = Modifier.clickable { onItemClick() }
     ) {
         Icon(
             painter = painterResource(id = item.icon),
@@ -492,7 +496,8 @@ private fun BottomNavigationViewItem(
         Text(
             text = item.title,
             color = if (isSelected) activeTextColor else inactiveTextColor,
-            fontSize = 12.sp
+            fontSize = 12.sp,
+            fontWeight = if (isSelected) FontWeight.Medium else FontWeight.Normal
         )
     }
 }

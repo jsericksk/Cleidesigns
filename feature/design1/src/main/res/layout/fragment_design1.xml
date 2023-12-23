@@ -55,17 +55,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/avenirltstd_book"
                 android:text="$249"
-                android:textColor="#020102"
-                android:textSize="20sp" />
+                android:textColor="#101010"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/avenirltstd_book"
                 android:text="@string/item_text"
-                android:textColor="#474646"
-                android:textSize="17sp" />
+                android:textColor="#101010"
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
