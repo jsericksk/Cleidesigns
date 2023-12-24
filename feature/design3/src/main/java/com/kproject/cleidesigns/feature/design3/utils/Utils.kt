@@ -10,7 +10,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 
-val days = arrayOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+internal val days = arrayOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 
 internal fun BarChart.initBarChart() {
     val barChart = this
