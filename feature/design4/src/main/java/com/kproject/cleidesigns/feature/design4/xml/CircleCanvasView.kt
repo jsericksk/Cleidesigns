@@ -8,11 +8,10 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.kproject.cleidesigns.feature.design4.R
 
-class CircleCanvasView @JvmOverloads constructor(
+internal class CircleCanvasView(
     context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : View(context, attrs, defStyleAttr) {
+    attrs: AttributeSet
+) : View(context, attrs) {
     private val primaryCircleColor = ContextCompat.getColor(context, R.color.primary_circle)
     private val secondaryCircleColor = ContextCompat.getColor(context, R.color.secondary_circle)
 
@@ -25,6 +24,7 @@ class CircleCanvasView @JvmOverloads constructor(
 
     private fun drawCircles(canvas: Canvas) {
         paint.color = primaryCircleColor
+        paint.isAntiAlias = true
         canvas.drawCircle(0f, 0f, 150.dpToPx(), paint)
 
         paint.color = primaryCircleColor
