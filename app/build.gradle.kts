@@ -2,7 +2,6 @@ plugins {
     id("cleidesigns.android.application")
     id("kotlin-kapt")
     id("kotlin-parcelize")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -43,7 +42,6 @@ android {
 
     buildFeatures {
         compose = true
-        viewBinding = true
     }
 
     composeOptions {
@@ -66,12 +64,9 @@ dependencies {
     implementation(project(":feature:design4"))
 
     implementation(libs.core.ktx)
-    implementation(libs.androidx.constraintlayout)
     implementation(libs.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.google.material)
     implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.appcompat)
 
     // Compose
     implementation(platform(libs.compose.bom))
@@ -82,15 +77,8 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
 
-    // Navigation Component
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-
     // Navigation Compose
     implementation(libs.navigation.compose)
-
-    // Coil
-    implementation(libs.coil)
 
     // Gson
     implementation(libs.gson)
