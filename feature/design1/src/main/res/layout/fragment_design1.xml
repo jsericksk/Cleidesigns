@@ -66,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/avenirltstd_book"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/item_text"
                 android:textColor="#101010"
                 android:textSize="18sp" />
