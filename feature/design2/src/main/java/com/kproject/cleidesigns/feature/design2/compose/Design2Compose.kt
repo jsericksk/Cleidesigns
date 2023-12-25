@@ -67,7 +67,7 @@ internal fun Design2Compose() {
                 )
         ) {
             // TopBar action icons
-            Column(Modifier.align(Alignment.TopEnd)) {
+            Column(modifier = Modifier.align(Alignment.TopEnd)) {
                 TopBarActionIcons()
             }
 
@@ -97,7 +97,13 @@ internal fun Design2Compose() {
                         .padding(start = 22.dp)
                 )
 
-                SearchTextField()
+                Spacer(Modifier.height(24.dp))
+
+                SearchTextField(
+                    modifier = Modifier.padding(horizontal = 24.dp)
+                )
+
+                Spacer(Modifier.height(30.dp))
             }
         }
 
@@ -221,7 +227,9 @@ private fun TopBarActionIcons() {
 }
 
 @Composable
-private fun SearchTextField() {
+private fun SearchTextField(
+    modifier: Modifier = Modifier
+) {
     var searchText by remember { mutableStateOf("") }
     OutlinedTextField(
         value = searchText,
@@ -248,9 +256,8 @@ private fun SearchTextField() {
             focusedLabelColor = Color.White,
             unfocusedLabelColor = Color.White,
         ),
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .padding(22.dp)
     )
 }
 
