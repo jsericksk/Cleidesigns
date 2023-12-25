@@ -8,8 +8,8 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.lerp
 
 /**
- * Function that was copied from the official Accompanist function for one reason only:
- * the Accompanist function uses MD2's TabPosition in tabPositions: List<TabPosition>,
+ * Function that was copied from the official Accompanist Pager Indicators function for one reason
+ * only: the Accompanist function uses MD2's TabPosition in tabPositions: List<TabPosition>,
  * but this project is using Material Design 3.
  */
 @OptIn(ExperimentalFoundationApi::class)

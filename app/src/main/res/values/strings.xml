@@ -11,7 +11,7 @@
     <string name="menu_options">Options</string>
     <string name="view_xml_version">View in XML</string>
     <string name="view_compose_version">View in Compose</string>
-    <string name="view_design_inspiration">View Inpiration</string>
+    <string name="view_design_inspiration">View Inspiration</string>
     <string name="view_source_project">View Source Project</string>
 
 </resources>

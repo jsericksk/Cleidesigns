@@ -36,6 +36,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -55,7 +56,6 @@ fun HomeScreen(onNavigateToDesignViewScreen: (Design, DesignType) -> Unit) {
 
 @Composable
 private fun MainContent(
-    modifier: Modifier = Modifier,
     onViewDesign: (Design, DesignType) -> Unit,
 ) {
     Scaffold(
@@ -73,7 +73,7 @@ private fun MainContent(
                 Text(
                     text = stringResource(id = R.string.app_name),
                     color = MaterialTheme.colorScheme.onPrimary,
-                    fontSize = 20.sp,
+                    fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                 )
             }

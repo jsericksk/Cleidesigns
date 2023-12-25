@@ -12,7 +12,7 @@ data class Design(
 )
 
 enum class DesignType(@DrawableRes val iconResId: Int) {
-    XML(iconResId = R.drawable.ic_density_medium,),
+    XML(iconResId = R.drawable.ic_density_medium),
     Compose(iconResId = R.drawable.ic_code),
     Inspiration(iconResId = R.drawable.ic_lightbulb);
 }
