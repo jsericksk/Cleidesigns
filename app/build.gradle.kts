@@ -12,8 +12,8 @@ android {
         applicationId = "com.kproject.cleidesigns"
         minSdk = 23
         targetSdk = 34
-        versionCode = 5
-        versionName = "1.5"
+        versionCode = 20
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
