@@ -6,8 +6,8 @@
 </h1>
 
 <p align="center">
-  <img src="screenshots/design_3.png" width="851" height="681" />
-  <br/><img src="screenshots/design_4.png" width="851" height=681"/>
+  <img src="screenshots/design_3.png" width="768" height="614" />
+  <br/><img src="screenshots/design_4.png" width="768" height=614"/>
 </p>
 
 <details>
