@@ -66,10 +66,7 @@ internal fun Design2Compose() {
                     shape = RoundedCornerShape(bottomEnd = 28.dp, bottomStart = 28.dp)
                 )
         ) {
-            // TopBar action icons
-            Column(modifier = Modifier.align(Alignment.TopEnd)) {
-                TopBarActionIcons()
-            }
+            TopBarActionIcons(modifier = Modifier.align(Alignment.TopEnd))
 
             Image(
                 painter = painterResource(id = R.drawable.ic_custom_hand),
@@ -205,22 +202,23 @@ internal fun Design2Compose() {
 }
 
 @Composable
-private fun TopBarActionIcons() {
-    val defaultPadding = 22.dp
-    Row {
+private fun TopBarActionIcons(
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier.padding(22.dp)
+    ) {
         Image(
             painter = painterResource(id = R.drawable.ic_custom_notification),
             contentDescription = "",
             modifier = Modifier
-                .padding(top = defaultPadding, end = defaultPadding)
                 .clickable {}
         )
-
+        Spacer(Modifier.width(22.dp))
         Image(
             painter = painterResource(id = R.drawable.ic_custom_menu),
             contentDescription = "",
             modifier = Modifier
-                .padding(top = defaultPadding, end = defaultPadding)
                 .clickable {}
         )
     }

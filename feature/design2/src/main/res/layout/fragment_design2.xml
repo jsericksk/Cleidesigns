@@ -17,10 +17,10 @@
             android:id="@+id/ibNotifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="22dp"
             android:layout_toStartOf="@id/ibMenu"
             android:background="?android:attr/selectableItemBackground"
-            android:padding="12dp"
             android:src="@drawable/ic_custom_notification" />
 
         <ImageButton
@@ -28,10 +28,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="14dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="22dp"
             android:background="?android:attr/selectableItemBackground"
-            android:padding="12dp"
             android:src="@drawable/ic_custom_menu" />
 
         <ImageView
