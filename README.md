@@ -1,29 +1,37 @@
-## Cleidesigns - UI created in XML and Jetpack Compose
 <p align="center">
-  <img src="screenshots/screenshots_design_1.png" width="700" height="500" />
-  <br/><img src="screenshots/screenshots_design_3.png" width="700" height=500"/>
+  <img src="https://github.com/jsericksk/Cleidesigns/raw/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" width="100">
+</p>
+<h1 align="center">
+  Cleidesigns
+</h1>
+
+<p align="center">
+  <img src="screenshots/design_3.png" width="851" height="681" />
+  <br/><img src="screenshots/design_4.png" width="851" height=681"/>
 </p>
 
-This project was created with the purpose of exercising and improving my knowledge in creating Android interfaces.
-In addition to trying to get close to the original design, I'm trying to use components and implementations that would normally be used in a "real" scenario, since if the goal was just to make it look similar, some of the item lists could be created with just component duplication, instead of using a RecyclerView and all that it implies (adapters, models etc.), for example.
+<details>
+  <summary>See app demo</summary>
+  
+  https://github.com/jsericksk/Cleidesigns/assets/36176569/ebf63deb-d38c-4b0f-9843-05ee4479e629
+</details>
 
-In addition to the traditional XML implementation, the project also contains versions created using Jetpack Compose, which in my humble opinion is already much faster, easier and more intuitive to create interfaces.
+The main objective of this project is to create interfaces using both XML and Jetpack Compose, taking inspiration from designs found on [Dribbble](https://dribbble.com).
 
-## Organization
+For better organization, each design is in a separate module, having files that correspond only to the design itself, such as strings, drawables, fonts, etc. The architecture is inspired by [Now in Android](https://github.com/android/nowinandroid).
 
-Designs are separated into folders for better organization, such as **design1, design2, design3...**, where each folder contains classes used in that design itself, such as models or utils classes.
-Specific design files contain a prefix to better identify which screen the file is being used on, such as **design1_image**.
+It's a personal project just for fun. :)
 
-## Test it yourself
+## Download APK
 
-You can download the app to test on your device, just access the project  [releases](https://github.com/jsericksk/Cleidesigns/releases) and download the apk.
-
+You can download the APK from [releases](https://github.com/jsericksk/Cleidesigns/releases).
 
 ## License
+
 ```
 MIT License
 
-Copyright (c) 2022 Ericks
+Copyright (c) 2022 Jesus Ericks
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
