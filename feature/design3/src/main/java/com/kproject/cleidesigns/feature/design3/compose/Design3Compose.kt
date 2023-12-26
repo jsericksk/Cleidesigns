@@ -123,7 +123,7 @@ private fun TopComponents() {
         fontWeight = FontWeight.Bold
     )
 
-    Spacer(modifier = Modifier.height(18.dp))
+    Spacer(Modifier.height(20.dp))
 
     var textFieldValue by remember { mutableStateOf("") }
     TextField(
